@@ -1,9 +1,9 @@
--- 1. ê·¸ë£¹í™” ê´€ë ¨ í•¨ìˆ˜
--- 1-1.  ROLLUP (ìˆœì„œëŒ€ë¡œ í•˜ë‚˜ì”© ë¹¼ê°€ë©° ê·¸ë£¹í™”)
--- ì²˜ìŒì—ëŠ” GROUP BYì— ì§€ì •ëœ ëª¨ë“  ì»¬ëŸ¼ìœ¼ë¡œ ê·¸ë£¹í™”ëœ ê²°ê³¼ë¥¼ ë³´ì—¬ì£¼ê³ 
--- ë‹¤ìŒë¶€í„°ëŠ” ë§ˆì§€ë§‰ì— ì§€ì •ëœ ì»¬ëŸ¼ì„ í•˜ë‚˜ì”© ëº€ ê·¸ë£¹í™”ëœ ê²°ê³¼ë¥¼ ë³´ì—¬ì£¼ë‹¤ê°€
--- ë§ˆì§€ë§‰ì—ëŠ” ê·¸ë£¹í™”ë˜ì§€ ì•Šì€ ì „ì²´ ë°ì´í„°ì— ëŒ€í•œ ê²°ê³¼ë¥¼ ë³´ì—¬ì¤€ë‹¤.
--- ROLLUPì„ ì‚¬ìš©í•˜ì§€ ì•Šì•˜ì„ ë•Œ
+-- 1. ±×·ìÈ­ °ü·Ã ÇÔ¼ö
+-- 1-1.  ROLLUP (¼ø¼­´ë·Î ÇÏ³ª¾¿ »©°¡¸ç ±×·ìÈ­)
+-- Ã³À½¿¡´Â GROUP BY¿¡ ÁöÁ¤µÈ ¸ðµç ÄÃ·³À¸·Î ±×·ìÈ­µÈ °á°ú¸¦ º¸¿©ÁÖ°í
+-- ´ÙÀ½ºÎÅÍ´Â ¸¶Áö¸·¿¡ ÁöÁ¤µÈ ÄÃ·³À» ÇÏ³ª¾¿ »« ±×·ìÈ­µÈ °á°ú¸¦ º¸¿©ÁÖ´Ù°¡
+-- ¸¶Áö¸·¿¡´Â ±×·ìÈ­µÇÁö ¾ÊÀº ÀüÃ¼ µ¥ÀÌÅÍ¿¡ ´ëÇÑ °á°ú¸¦ º¸¿©ÁØ´Ù.
+-- ROLLUPÀ» »ç¿ëÇÏÁö ¾Ê¾ÒÀ» ¶§
 SELECT DNO
 	 , JOB
 	 , MAX(SAL)
@@ -13,7 +13,7 @@ SELECT DNO
 	 FROM EMP
 	 GROUP BY DNO, JOB;
 	 
--- ROLLUP ì‚¬ìš© ì‹œ	
+-- ROLLUP »ç¿ë ½Ã	
 	SELECT DNO
 	 , JOB
 	 , MAX(SAL)
@@ -46,10 +46,10 @@ SELECT MAX(SAL)
 	 , COUNT(*)
 	 FROM EMP;
 	 
--- ROLLUP í•¨ìˆ˜ë¥¼ ì´ìš©í•´ì„œ ì „ê³µë³„ í•™ë…„ë³„ í‰ê· í‰ì , í‰ì ì˜ ì´í•©, ìµœê³  í‰ì  ì¡°íšŒ
--- ì „ê³µë³„ í‰ê· í‰ì , í‰ì ì˜ ì´í•©, ìµœê³  í‰ì  ì¡°íšŒ
--- ì „ì²´ í•™ìƒì— ëŒ€í•œ í‰ê· í‰ì , í‰ì ì˜ ì´í•©, ìµœê³  í‰ì  ì¡°íšŒ
-SELECT NVL(MAJOR, 'ì „ì²´í•™ìƒ') 
+-- ROLLUP ÇÔ¼ö¸¦ ÀÌ¿ëÇØ¼­ Àü°øº° ÇÐ³âº° Æò±ÕÆòÁ¡, ÆòÁ¡ÀÇ ÃÑÇÕ, ÃÖ°í ÆòÁ¡ Á¶È¸
+-- Àü°øº° Æò±ÕÆòÁ¡, ÆòÁ¡ÀÇ ÃÑÇÕ, ÃÖ°í ÆòÁ¡ Á¶È¸
+-- ÀüÃ¼ ÇÐ»ý¿¡ ´ëÇÑ Æò±ÕÆòÁ¡, ÆòÁ¡ÀÇ ÃÑÇÕ, ÃÖ°í ÆòÁ¡ Á¶È¸
+SELECT NVL(MAJOR, 'ÀüÃ¼ÇÐ»ý') 
 	 , SYEAR 
 	 , AVG(AVR)
 	 , SUM(AVR)
@@ -58,11 +58,11 @@ SELECT NVL(MAJOR, 'ì „ì²´í•™ìƒ')
 	FROM STUDENT
 	GROUP BY ROLLUP (MAJOR, SYEAR);
 
--- 1-2. CUBE (ëª¨ë“  ê²½ìš°ì— ëŒ€í•œ ê·¸ë£¹í™”)
--- ROLLUP í•¨ìˆ˜ì™€ ì§€ì •ë°©ì‹ì€ ë™ì¼í•˜ì§€ë§Œ ë™ìž‘ ë°©ì‹ì´ ë‹¤ë¥´ë‹¤.
--- RULLUP í•¨ìˆ˜ê°€ GROUP BYì— ì§€ì •ëœ ì»¬ëŸ¼ì„ ë’¤ì—ì„œë¶€í„° í•˜ë‚˜ì”© ë¹¼ë©´ì„œ ê·¸ë£¹í™”ë¥¼ ì§„í–‰í•œë‹¤ë©´
--- CUBE í•¨ìˆ˜ëŠ” GROUP BYì— ì§€ì •ëœ ì»¬ëŸ¼ì˜ ëª¨ë“  ì¡°í•©ì— ëŒ€í•œ ê·¸ë£¹í™”ë¥¼ ì§„í–‰í•œë‹¤.
--- ROLLUP ì‚¬ìš© ì‹œ
+-- 1-2. CUBE (¸ðµç °æ¿ì¿¡ ´ëÇÑ ±×·ìÈ­)
+-- ROLLUP ÇÔ¼ö¿Í ÁöÁ¤¹æ½ÄÀº µ¿ÀÏÇÏÁö¸¸ µ¿ÀÛ ¹æ½ÄÀÌ ´Ù¸£´Ù.
+-- RULLUP ÇÔ¼ö°¡ GROUP BY¿¡ ÁöÁ¤µÈ ÄÃ·³À» µÚ¿¡¼­ºÎÅÍ ÇÏ³ª¾¿ »©¸é¼­ ±×·ìÈ­¸¦ ÁøÇàÇÑ´Ù¸é
+-- CUBE ÇÔ¼ö´Â GROUP BY¿¡ ÁöÁ¤µÈ ÄÃ·³ÀÇ ¸ðµç Á¶ÇÕ¿¡ ´ëÇÑ ±×·ìÈ­¸¦ ÁøÇàÇÑ´Ù.
+-- ROLLUP »ç¿ë ½Ã
 SELECT MAJOR
 	 , SYEAR
 	 , SEX
@@ -73,7 +73,7 @@ SELECT MAJOR
 	 FROM STUDENT
 	 GROUP BY ROLLUP(MAJOR, SYEAR,SEX);
 	
--- CUBE ì‚¬ìš© ì‹œ
+-- CUBE »ç¿ë ½Ã
 SELECT MAJOR
 	 , SYEAR
 	 , SEX
@@ -84,7 +84,7 @@ SELECT MAJOR
 	 FROM STUDENT
 	 GROUP BY CUBE(MAJOR, SYEAR,SEX);
 	
--- 1-3. GROUPING SETS: GROUP BYì— ì§€ì •ëœ ì»¬ëŸ¼ë“¤ì˜ ê°ê° ê·¸ë£¹í™”ëœ ê²°ê³¼ë¥¼ ë³´ì—¬ì¤€ë‹¤.
+-- 1-3. GROUPING SETS: GROUP BY¿¡ ÁöÁ¤µÈ ÄÃ·³µéÀÇ °¢°¢ ±×·ìÈ­µÈ °á°ú¸¦ º¸¿©ÁØ´Ù.
 SELECT DNO
 	 , MAX(SAL)
 	 , SUM(SAL)
@@ -111,17 +111,17 @@ SELECT DNO
 	 GROUP BY GROUPING SETS (DNO, JOB);
 	
 -- 1-4. GROUPING, GROUPING_ID
--- ì§€ì •ëœ ì»¬ëŸ¼ì— ëŒ€í•œ ê·¸ë£¹í™” ì—¬ë¶€ë¥¼ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
--- GROUPING í•¨ìˆ˜ëŠ” ë§¤ê°œë³€ìˆ˜ë¥¼ í•˜ë‚˜ë§Œ ì§€ì •í•  ìˆ˜ ìžˆê³ 
--- GROUPING_ID í•¨ìˆ˜ëŠ” ë§¤ê°œë³€ìˆ˜ë¥¼ ì—¬ëŸ¬ê°œì˜ ì»¬ëŸ¼ì„ ì§€ì •í•  ìˆ˜ ìžˆë‹¤.
--- GROUPING í•¨ìˆ˜ëŠ” ê·¸ë£¹í™”ê°€ ì§„í–‰ëìœ¼ë©´ 0, ê·¸ë£¹í™”ê°€ ì§„í–‰ë˜ì§€ ì•Šì•˜ìœ¼ë©´ 1
--- GROUPING_ID í•¨ìˆ˜ëŠ” ì§€ì •ëœ ì»¬ëŸ¼ë“¤ ê°ê°ì— ëŒ€í•´ ê·¸ë£¹í™”ê°€ ì§„í–‰ëìœ¼ë©´ 0, ê·¸ë£¹í™”ê°€ ì§„í–‰ë˜ì§€ ì•Šì•˜ìœ¼ë©´ 1
--- ì„ ì´ì§„ìˆ˜ë¡œ ì¡°í•©í•˜ì—¬ ì¶œë ¥ì€ ì‹­ì§„ìˆ˜ë¡œ ì¶œë ¥í•œë‹¤.
+-- ÁöÁ¤µÈ ÄÃ·³¿¡ ´ëÇÑ ±×·ìÈ­ ¿©ºÎ¸¦ È®ÀÎÇÏ´Â ÇÔ¼ö
+-- GROUPING ÇÔ¼ö´Â ¸Å°³º¯¼ö¸¦ ÇÏ³ª¸¸ ÁöÁ¤ÇÒ ¼ö ÀÖ°í
+-- GROUPING_ID ÇÔ¼ö´Â ¸Å°³º¯¼ö¸¦ ¿©·¯°³ÀÇ ÄÃ·³À» ÁöÁ¤ÇÒ ¼ö ÀÖ´Ù.
+-- GROUPING ÇÔ¼ö´Â ±×·ìÈ­°¡ ÁøÇàµÆÀ¸¸é 0, ±×·ìÈ­°¡ ÁøÇàµÇÁö ¾Ê¾ÒÀ¸¸é 1
+-- GROUPING_ID ÇÔ¼ö´Â ÁöÁ¤µÈ ÄÃ·³µé °¢°¢¿¡ ´ëÇØ ±×·ìÈ­°¡ ÁøÇàµÆÀ¸¸é 0, ±×·ìÈ­°¡ ÁøÇàµÇÁö ¾Ê¾ÒÀ¸¸é 1
+-- À» ÀÌÁø¼ö·Î Á¶ÇÕÇÏ¿© Ãâ·ÂÀº ½ÊÁø¼ö·Î Ãâ·ÂÇÑ´Ù.
 -- GROUPING(DNO), GROUPING(JOB), GROUPING_ ID(DNO, JOB)
---      0              0            ì´ì§„ìˆ˜: 00 -> ì‹­ì§„ìˆ˜: 0
---      1              0            ì´ì§„ìˆ˜: 10 -> ì‹­ì§„ìˆ˜: 2
---      0              1            ì´ì§„ìˆ˜: 01 -> ì‹­ì§„ìˆ˜: 1
---      1              1            ì´ì§„ìˆ˜: 11 -> ì‹­ì§„ìˆ˜: 3
+--      0              0            ÀÌÁø¼ö: 00 -> ½ÊÁø¼ö: 0
+--      1              0            ÀÌÁø¼ö: 10 -> ½ÊÁø¼ö: 2
+--      0              1            ÀÌÁø¼ö: 01 -> ½ÊÁø¼ö: 1
+--      1              1            ÀÌÁø¼ö: 11 -> ½ÊÁø¼ö: 3
 SELECT DNO
 	 , JOB
 	 , MAX(SAL)
@@ -134,16 +134,16 @@ SELECT DNO
 	 FROM EMP
 	 GROUP BY CUBE(DNO, JOB);
 	 
--- CUBE í•¨ìˆ˜ë¥¼ ì´ìš©í•´ì„œ
--- ì „ê³µë³„ í•™ë…„ë³„ ì„±ë³„ë³„ ìµœê³  í‰ì , í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒ
--- ì „ê³µë³„ í•™ë…„ë³„ ìµœê³  í‰ì , í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒ
--- ì „ê³µë³„ ì„±ë³„ë³„ ìµœê³  í‰ì , í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒ
--- í•™ë…„ë³„ ì„±ë³„ë³„ ìµœê³  í‰ì , í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒ
--- ì „ê³µë³„ ìµœê³  í‰ì , í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒ
--- í•™ë…„ë³„ ìµœê³  í‰ì , í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒ
--- ì„±ë³„ë³„ ìµœê³  í‰ì , í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒ
--- ì „ì²´ ë°ì´í„°ì— ëŒ€í•œ ìµœê³  í‰ì ì˜ í•©ê³„, í‰ì ì˜ í‰ê· , í•™ìƒìˆ˜ ì¡°íšŒí•˜ëŠ”ë°
--- ê°ê°ì˜ ì „ê³µìœ¼ í•™ë…„, ì„±ë³„, ì»¬ëŸ¼ì´ ê·¸ë£¹í™” ëëŠ”ì§€ í™•ì¸
+-- CUBE ÇÔ¼ö¸¦ ÀÌ¿ëÇØ¼­
+-- Àü°øº° ÇÐ³âº° ¼ºº°º° ÃÖ°í ÆòÁ¡, ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸
+-- Àü°øº° ÇÐ³âº° ÃÖ°í ÆòÁ¡, ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸
+-- Àü°øº° ¼ºº°º° ÃÖ°í ÆòÁ¡, ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸
+-- ÇÐ³âº° ¼ºº°º° ÃÖ°í ÆòÁ¡, ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸
+-- Àü°øº° ÃÖ°í ÆòÁ¡, ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸
+-- ÇÐ³âº° ÃÖ°í ÆòÁ¡, ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸
+-- ¼ºº°º° ÃÖ°í ÆòÁ¡, ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸
+-- ÀüÃ¼ µ¥ÀÌÅÍ¿¡ ´ëÇÑ ÃÖ°í ÆòÁ¡ÀÇ ÇÕ°è, ÆòÁ¡ÀÇ Æò±Õ, ÇÐ»ý¼ö Á¶È¸ÇÏ´Âµ¥
+-- °¢°¢ÀÇ Àü°øÀ¸ ÇÐ³â, ¼ºº°, ÄÃ·³ÀÌ ±×·ìÈ­ µÆ´ÂÁö È®ÀÎ
 SELECT MAJOR 
 	 , SYEAR 
 	 , SEX
@@ -158,7 +158,7 @@ SELECT MAJOR
 	FROM STUDENT
 	GROUP BY CUBE(MAJOR, SYEAR, SEX);
 
--- 1-5. LISTAGG: ê·¸ë£¹í™”ëœ ì»¬ëŸ¼ì— í¬í•¨ë˜ëŠ” ë°ì´í„°ë¥¼ í™•ì¸í•˜ê³  ì‹¶ì„ ë•Œ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜
+-- 1-5. LISTAGG: ±×·ìÈ­µÈ ÄÃ·³¿¡ Æ÷ÇÔµÇ´Â µ¥ÀÌÅÍ¸¦ È®ÀÎÇÏ°í ½ÍÀ» ¶§ »ç¿ëÇÏ´Â ÇÔ¼ö
 SELECT DNO
 	 , COUNT(*) 
 	 , LISTAGG(ENAME, ', ')
@@ -166,7 +166,7 @@ SELECT DNO
 	FROM EMP
 	GROUP BY DNO;
 
--- ì „ê³µë³„ í•™ë…„ë³„ í•™ìƒìˆ˜ ì¡°íšŒ(í¬í•¨ëœ í•™ìƒì´ë¦„ë„ í•¨ê»˜ ì¡°íšŒ(LISTAGGí•¨ìˆ˜ë¥¼ ì‚¬ìš©í•´ì„œ), í‰ì ë†’ì€ìˆœìœ¼ë¡œ ì •ë¦¬)
+-- Àü°øº° ÇÐ³âº° ÇÐ»ý¼ö Á¶È¸(Æ÷ÇÔµÈ ÇÐ»ýÀÌ¸§µµ ÇÔ²² Á¶È¸(LISTAGGÇÔ¼ö¸¦ »ç¿ëÇØ¼­), ÆòÁ¡³ôÀº¼øÀ¸·Î Á¤¸®)
 SELECT MAJOR
 	 , SYEAR
 	 , COUNT(*)
@@ -176,7 +176,7 @@ SELECT MAJOR
 	  GROUP BY MAJOR, SYEAR
 	  ORDER BY MAJOR, SYEAR;
 
--- LISTAGGì˜ êµ¬ë¶„ìžì™€ WITHIN ì ˆì€ ìƒëžµ ê°€ëŠ¥í•˜ë‹¤.
+-- LISTAGGÀÇ ±¸ºÐÀÚ¿Í WITHIN ÀýÀº »ý·« °¡´ÉÇÏ´Ù.
 SELECT MAJOR
 	 , SYEAR
 	 , COUNT(*)
@@ -185,8 +185,8 @@ SELECT MAJOR
 	 GROUP BY MAJOR, SYEAR;
 	
 -- 1-6. PIVOT, UNPIVOT
--- PIVOT: ê¸°ì¡´ í–‰ ë°ì´í„°ë“¤ì„ ì»¬ëŸ¼ìœ¼ë¡œ ë³€ê²½í•´ì£¼ëŠ” í•¨ìˆ˜
--- UNPIVOT: ê¸°ì¡´ ì»¬ëŸ¼ë“¤ì„ í–‰ ë°ì´í„°ë¡œ ë³€ê²½í•´ì£¼ëŠ” í•¨ìˆ˜ 
+-- PIVOT: ±âÁ¸ Çà µ¥ÀÌÅÍµéÀ» ÄÃ·³À¸·Î º¯°æÇØÁÖ´Â ÇÔ¼ö
+-- UNPIVOT: ±âÁ¸ ÄÃ·³µéÀ» Çà µ¥ÀÌÅÍ·Î º¯°æÇØÁÖ´Â ÇÔ¼ö 
 SELECT *
 	FROM(
 		SELECT JOB
@@ -196,25 +196,25 @@ SELECT *
 		PIVOT(
 			MAX(SAL)
 				FOR JOB IN(
-					'ê²½ì˜' AS "OPER",
-					'ì§€ì›' AS "ì§€ì›",
-					'íšŒê³„' AS "ACCOUNT",
-					'ê°œë°œ' AS "DEVELOP",
-					'ë¶„ì„' AS "ë¶„ì„"
+					'°æ¿µ' AS "OPER",
+					'Áö¿ø' AS "Áö¿ø",
+					'È¸°è' AS "ACCOUNT",
+					'°³¹ß' AS "DEVELOP",
+					'ºÐ¼®' AS "ºÐ¼®"
 				)
 		);
 
--- PIVOTì€ FROMì ˆì—ì„œ ê·¸ë£¹í™”í•  ì»¬ëŸ¼, í†µê³„ë‚¼ ì»¬ëŸ¼ë§Œ ì¡°íšŒí•˜ëŠ” ì„œë¸Œì¿¼ë¦¬ë¥¼ ì‚¬ìš©í•´ì•¼ëœë‹¤.(ì„œë¸Œì¿¼ë¦¬ ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë©´ ëª¨ë“  ì»¬ëŸ¼ìœ¼ë¡œ GROUPí™”ê°€ ë˜ë²„ë¦°ë‹¤.)
+-- PIVOTÀº FROMÀý¿¡¼­ ±×·ìÈ­ÇÒ ÄÃ·³, Åë°è³¾ ÄÃ·³¸¸ Á¶È¸ÇÏ´Â ¼­ºêÄõ¸®¸¦ »ç¿ëÇØ¾ßµÈ´Ù.(¼­ºêÄõ¸® »ç¿ëÇÏÁö ¾ÊÀ¸¸é ¸ðµç ÄÃ·³À¸·Î GROUPÈ­°¡ µÇ¹ö¸°´Ù.)
 SELECT *
 	FROM EMP
 	PIVOT(
 		MAX(SAL)
 			FOR JOB IN (
-				'ê²½ì˜' AS "OPER",
-				'ì§€ì›' AS "ì§€ì›",
-				'íšŒê³„' AS "ACCOUNT",
-				'ê°œë°œ' AS "DEVELOP",
-				'ë¶„ì„' AS "ë¶„ì„"
+				'°æ¿µ' AS "OPER",
+				'Áö¿ø' AS "Áö¿ø",
+				'È¸°è' AS "ACCOUNT",
+				'°³¹ß' AS "DEVELOP",
+				'ºÐ¼®' AS "ºÐ¼®"
 			)
 	);
 
@@ -224,26 +224,26 @@ SELECT *
 			 , SAL
 			FROM EMP
 		)
-		-- í†µê³„í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ëŠ”ë° GROUP BYë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ” ì´ìœ ëŠ”
-		-- ë°ì´í„°ë“¤ì´ ì»¬ëŸ¼ìœ¼ë¡œ ë³€ê²½ë˜ë©´ì„œ ì»¬ëŸ¼ì€ ì¤‘ë³µì´ ë˜ì§€ ì•Šê¸° ë•Œë¬¸ì— 
-		-- ê°™ì€ ê°’ì„ ê°€ì§€ê³  ìžˆëŠ” ë°ì´í„°ë¼ë¦¬ ê·¸ë£¹í™”ê°€ ìžë™ìœ¼ë¡œ ì¼ì–´ë‚œë‹¤.
+		-- Åë°èÇÔ¼ö¸¦ »ç¿ëÇÏ´Âµ¥ GROUP BY¸¦ »ç¿ëÇÏÁö ¾Ê´Â ÀÌÀ¯´Â
+		-- µ¥ÀÌÅÍµéÀÌ ÄÃ·³À¸·Î º¯°æµÇ¸é¼­ ÄÃ·³Àº Áßº¹ÀÌ µÇÁö ¾Ê±â ¶§¹®¿¡ 
+		-- °°Àº °ªÀ» °¡Áö°í ÀÖ´Â µ¥ÀÌÅÍ³¢¸® ±×·ìÈ­°¡ ÀÚµ¿À¸·Î ÀÏ¾î³­´Ù.
 		PIVOT(
 			MAX(SAL)
 				FOR JOB IN(
-					'ê²½ì˜' AS "OPER",
-					'ì§€ì›' AS "ì§€ì›",
-					'íšŒê³„' AS "ACCOUNT",
-					'ê°œë°œ' AS "DEVELOP",
-					'ë¶„ì„' AS "ë¶„ì„"
+					'°æ¿µ' AS "OPER",
+					'Áö¿ø' AS "Áö¿ø",
+					'È¸°è' AS "ACCOUNT",
+					'°³¹ß' AS "DEVELOP",
+					'ºÐ¼®' AS "ºÐ¼®"
 				)
 		);	 
 	 
--- PIVOTìœ¼ë¡œ ìƒì„±í•œ ì»¬ëŸ¼ë“¤ì€ SELECT ë¬¸ì—ì„œ ë°”ë¡œ ì‚¬ìš©ê°€ëŠ¥	
+-- PIVOTÀ¸·Î »ý¼ºÇÑ ÄÃ·³µéÀº SELECT ¹®¿¡¼­ ¹Ù·Î »ç¿ë°¡´É	
 SELECT OPER
-	 , ì§€ì›
+	 , Áö¿ø
 	 , ACCOUNT
 	 , DEVELOP
-	 , ë¶„ì„
+	 , ºÐ¼®
 	FROM(
 		SELECT JOB
 			 , SAL
@@ -252,15 +252,15 @@ SELECT OPER
 		PIVOT(
 			MAX(SAL)
 				FOR JOB IN(
-					'ê²½ì˜' AS "OPER",
-					'ì§€ì›' AS "ì§€ì›",
-					'íšŒê³„' AS "ACCOUNT",
-					'ê°œë°œ' AS "DEVELOP",
-					'ë¶„ì„' AS "ë¶„ì„"
+					'°æ¿µ' AS "OPER",
+					'Áö¿ø' AS "Áö¿ø",
+					'È¸°è' AS "ACCOUNT",
+					'°³¹ß' AS "DEVELOP",
+					'ºÐ¼®' AS "ºÐ¼®"
 				)
 		);	
 	
--- ì „ê³µë³„ í•™ë…„ë³„ ìµœê³  í‰ì  ì¡°íšŒí•˜ëŠ”ë° PIVOTì„ ì´ìš©í•´ì„œ ì „ê³µì„ ì»¬ëŸ¼ìœ¼ë¡œ ì¡°íšŒ
+-- Àü°øº° ÇÐ³âº° ÃÖ°í ÆòÁ¡ Á¶È¸ÇÏ´Âµ¥ PIVOTÀ» ÀÌ¿ëÇØ¼­ Àü°øÀ» ÄÃ·³À¸·Î Á¶È¸
 SELECT *
 	FROM (
 		 SELECT MAJOR
@@ -271,42 +271,42 @@ SELECT *
 		 PIVOT(
 		 		MAX(AVR)
 		 			FOR MAJOR IN(
-		 				'ì»´ê³µ' AS "ì»´ê³µ",
-		 				'í™”í•™' AS "í™”í•™",
-		 				'ë¬¼ë¦¬' AS "ë¬¼ë¦¬",
-		 				'ìƒë¬¼' AS "ìƒë¬¼",
-		 				'ì‹ì˜' AS "ì‹ì˜",
-		 				'ìœ ê³µ' AS "ìœ ê³µ"
+		 				'ÄÄ°ø' AS "ÄÄ°ø",
+		 				'È­ÇÐ' AS "È­ÇÐ",
+		 				'¹°¸®' AS "¹°¸®",
+		 				'»ý¹°' AS "»ý¹°",
+		 				'½Ä¿µ' AS "½Ä¿µ",
+		 				'À¯°ø' AS "À¯°ø"
 		 			)
 		 	  );
 
 -- UNPIVOT
 SELECT *
 	FROM (
-		SELECT MAX(DECODE(JOB, 'ê²½ì˜', SAL)) AS "ê²½ì˜"
-			 , MAX(DECODE(JOB, 'ì§€ì›', SAL)) AS "ì§€ì›"
-			 , MAX(DECODE(JOB, 'íšŒê³„', SAL)) AS "íšŒê³„"
-			 , MAX(DECODE(JOB, 'ê°œë°œ', SAL)) AS "ê°œë°œ"
-			 , MAX(DECODE(JOB, 'ë¶„ì„', SAL)) AS "ë¶„ì„"
+		SELECT MAX(DECODE(JOB, '°æ¿µ', SAL)) AS "°æ¿µ"
+			 , MAX(DECODE(JOB, 'Áö¿ø', SAL)) AS "Áö¿ø"
+			 , MAX(DECODE(JOB, 'È¸°è', SAL)) AS "È¸°è"
+			 , MAX(DECODE(JOB, '°³¹ß', SAL)) AS "°³¹ß"
+			 , MAX(DECODE(JOB, 'ºÐ¼®', SAL)) AS "ºÐ¼®"
 			 FROM EMP
 	);
 		
 SELECT *
 	FROM (
-		SELECT MAX(DECODE(JOB, 'ê²½ì˜', SAL)) AS "ê²½ì˜"
-			 , MAX(DECODE(JOB, 'ì§€ì›', SAL)) AS "ì§€ì›"
-			 , MAX(DECODE(JOB, 'íšŒê³„', SAL)) AS "íšŒê³„"
-			 , MAX(DECODE(JOB, 'ê°œë°œ', SAL)) AS "ê°œë°œ"
-			 , MAX(DECODE(JOB, 'ë¶„ì„', SAL)) AS "ë¶„ì„"
+		SELECT MAX(DECODE(JOB, '°æ¿µ', SAL)) AS "°æ¿µ"
+			 , MAX(DECODE(JOB, 'Áö¿ø', SAL)) AS "Áö¿ø"
+			 , MAX(DECODE(JOB, 'È¸°è', SAL)) AS "È¸°è"
+			 , MAX(DECODE(JOB, '°³¹ß', SAL)) AS "°³¹ß"
+			 , MAX(DECODE(JOB, 'ºÐ¼®', SAL)) AS "ºÐ¼®"
 			 FROM EMP
 	)		 	 
 	UNPIVOT ( 
 		MAX_SAL FOR J IN (
-				ê²½ì˜, ì§€ì›, íšŒê³„, ê°œë°œ, ë¶„ì„
+				°æ¿µ, Áö¿ø, È¸°è, °³¹ß, ºÐ¼®
 		)
 	);
 
---  ì •ì—­í•™, ì¼ë°˜í™”í•™, ì–‘ìžë¬¼ë¦¬í•™ì˜ ê¸°ë§ê³ ì‚¬ ì„±ì ì˜ í‰ê· ì„ ì¡°íšŒí•˜ëŠ”ë° ê³¼ëª©ì´ë¦„ì„ ì»¬ëŸ¼ìœ¼ë¡œ ì¡°íšŒ
+--  Á¤¿ªÇÐ, ÀÏ¹ÝÈ­ÇÐ, ¾çÀÚ¹°¸®ÇÐÀÇ ±â¸»°í»ç ¼ºÀûÀÇ Æò±ÕÀ» Á¶È¸ÇÏ´Âµ¥ °ú¸ñÀÌ¸§À» ÄÃ·³À¸·Î Á¶È¸
 SELECT *
 	FROM (
 		SELECT C.CNAME
@@ -318,27 +318,27 @@ SELECT *
 	PIVOT(
 		AVG(RESULT)
 			FOR CNAME IN (
-				'ì •ì—­í•™' AS "ì •ì—­í•™",
-				'ì¼ë°˜í™”í•™' AS "ì¼ë°˜í™”í•™",
-				'ì–‘ìžë¬¼ë¦¬í•™' AS "ì–‘ìžë¬¼ë¦¬í•™"
+				'Á¤¿ªÇÐ' AS "Á¤¿ªÇÐ",
+				'ÀÏ¹ÝÈ­ÇÐ' AS "ÀÏ¹ÝÈ­ÇÐ",
+				'¾çÀÚ¹°¸®ÇÐ' AS "¾çÀÚ¹°¸®ÇÐ"
 			)
 	);
 
--- ì•„ëž˜ ì¿¼ë¦¬ë¬¸ì„ UNPIVOTì„ ì´ìš©í•´ì„œ ê° ê³¼ëª©ì´ë¦„ì„ í–‰ë°ì´í„°ë¡œ ì¡°íšŒ
--- ê¸°ë§ê³ ì‚¬ í‰ê· ì„±ì  ì»¬ëŸ¼ì€ AVG_RESULT
--- ê³¼ëª©ì´ë¦„ì€ COURSE_NAMEìœ¼ë¡œ ì§€ì •
+-- ¾Æ·¡ Äõ¸®¹®À» UNPIVOTÀ» ÀÌ¿ëÇØ¼­ °¢ °ú¸ñÀÌ¸§À» Çàµ¥ÀÌÅÍ·Î Á¶È¸
+-- ±â¸»°í»ç Æò±Õ¼ºÀû ÄÃ·³Àº AVG_RESULT
+-- °ú¸ñÀÌ¸§Àº COURSE_NAMEÀ¸·Î ÁöÁ¤
 SELECT *
 	FROM (
-		SELECT AVG(DECODE(C.CNAME, 'ì •ì—­í•™', S.RESULT)) AS "ì •ì—­í•™"
-			 , AVG(DECODE(C.CNAME, 'ì¼ë°˜í™”í•™', S.RESULT)) AS "ì¼ë°˜í™”í•™"
-			 , AVG(DECODE(C.CNAME, 'ì–‘ìžë¬¼ë¦¬í•™', S.RESULT)) AS "ì–‘ìžë¬¼ë¦¬í•™"
+		SELECT AVG(DECODE(C.CNAME, 'Á¤¿ªÇÐ', S.RESULT)) AS "Á¤¿ªÇÐ"
+			 , AVG(DECODE(C.CNAME, 'ÀÏ¹ÝÈ­ÇÐ', S.RESULT)) AS "ÀÏ¹ÝÈ­ÇÐ"
+			 , AVG(DECODE(C.CNAME, '¾çÀÚ¹°¸®ÇÐ', S.RESULT)) AS "¾çÀÚ¹°¸®ÇÐ"
 			 FROM COURSE C
 			 JOIN SCORE S
 			   ON C.CNO = S.CNO
 	)
 	UNPIVOT(
 		AVG_RESULT FOR COURSE_NAME IN (
-			ì •ì—­í•™, ì¼ë°˜í™”í•™, ì–‘ìžë¬¼ë¦¬í•™
+			Á¤¿ªÇÐ, ÀÏ¹ÝÈ­ÇÐ, ¾çÀÚ¹°¸®ÇÐ
 		)
 	);
 	

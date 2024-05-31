@@ -1,10 +1,10 @@
 -- 1. Inner Join
--- JOINì€ ì—¬ëŸ¬ í…Œì´ë¸”ì— ë¶„ì‚°ë˜ì–´ ìžˆëŠ” ë°ì´í„°ë¥¼ í•œ ë²ˆì— ì¡°íšŒí•˜ê¸° ìœ„í•´ ì‚¬ìš©í•˜ëŠ” ê¸°ëŠ¥
--- JOINì—ëŠ” INNER JOINê³¼ OUTER JOINì´ ì¡´ìž¬í•œë‹¤.
--- JOIN ì ˆì—ëŠ” í•­ìƒ ê³µí†µ ì»¬ëŸ¼ì— í•´ë‹¹í•˜ëŠ” ì¡°ê±´ì„ ON ì ˆë¡œ ë§Œë“¤ì–´ì¤˜ì•¼ í•œë‹¤.
--- Inner Joinì€ ë‘ í…Œì´ë¸”ì— ê³µí†µëœ ë°ì´í„°ë¥¼ ì¡°íšŒí•˜ëŠ” ê¸°ëŠ¥
--- ë‘ í…Œì´ë¸”ì— ì¡´ìž¬í•˜ëŠ” ê³µí†µëœ ì»¬ëŸ¼ì„ ì¡°ì¸ ì¡°ê±´ìœ¼ë¡œ ëª…ì‹œí•œë‹¤.
--- í•™ìƒì˜ í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ê³¼ëª©ë²ˆí˜¸, ê¸°ë§ê³ ì‚¬ ì„±ì  ì¡°íšŒ
+-- JOINÀº ¿©·¯ Å×ÀÌºí¿¡ ºÐ»êµÇ¾î ÀÖ´Â µ¥ÀÌÅÍ¸¦ ÇÑ ¹ø¿¡ Á¶È¸ÇÏ±â À§ÇØ »ç¿ëÇÏ´Â ±â´É
+-- JOIN¿¡´Â INNER JOIN°ú OUTER JOINÀÌ Á¸ÀçÇÑ´Ù.
+-- JOIN Àý¿¡´Â Ç×»ó °øÅë ÄÃ·³¿¡ ÇØ´çÇÏ´Â Á¶°ÇÀ» ON Àý·Î ¸¸µé¾îÁà¾ß ÇÑ´Ù.
+-- Inner JoinÀº µÎ Å×ÀÌºí¿¡ °øÅëµÈ µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÏ´Â ±â´É
+-- µÎ Å×ÀÌºí¿¡ Á¸ÀçÇÏ´Â °øÅëµÈ ÄÃ·³À» Á¶ÀÎ Á¶°ÇÀ¸·Î ¸í½ÃÇÑ´Ù.
+-- ÇÐ»ýÀÇ ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, °ú¸ñ¹øÈ£, ±â¸»°í»ç ¼ºÀû Á¶È¸
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.CNO
@@ -22,7 +22,7 @@ SELECT *
 	FROM SCORE
 	ORDER BY SNO;
 	
--- ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ë‹´ë‹¹êµìˆ˜ ë²ˆí˜¸, ë‹´ë‹¹êµìˆ˜ ì´ë¦„ ì¡°íšŒ(COURSE, PROFESSOR í…Œì´ë¸” ì¡°ì¸)
+-- °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ´ã´ç±³¼ö ¹øÈ£, ´ã´ç±³¼ö ÀÌ¸§ Á¶È¸(COURSE, PROFESSOR Å×ÀÌºí Á¶ÀÎ)
 SELECT C.CNO
 	 , C.CNAME
 	 , C.PNO
@@ -31,7 +31,7 @@ SELECT C.CNO
 	INNER JOIN PROFESSOR P
 	   ON C.PNO = P.PNO;
 	  
--- INNER JOINì—ì„œ INNERëŠ” ìƒëžµ ê°€ëŠ¥í•˜ë‹¤.
+-- INNER JOIN¿¡¼­ INNER´Â »ý·« °¡´ÉÇÏ´Ù.
 SELECT C.CNO
 	 , C.CNAME
 	 , C.PNO
@@ -40,10 +40,10 @@ SELECT C.CNO
 	JOIN PROFESSOR P
 	   ON C.PNO = P.PNO;
 
--- 1-1. ë“±ê°€ì¡°ì¸
--- ë“±ê°€ì¡°ì¸ì€ ê³µí†µëœ ì»¬ëŸ¼ì˜ ë°ì´í„°ê°€ ê°™ì€ ë°ì´í„°ë§Œì„ ì¡°íšŒí•˜ëŠ” ì¡°ì¸
--- ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ì—…ë¬´, ê¸‰ì—¬, ë³´ë„ˆìŠ¤, ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„, ë¶€ì„œì§€ì—­ ì¡°íšŒ
--- ANSI í‘œì¤€ ë°©ì‹
+-- 1-1. µî°¡Á¶ÀÎ
+-- µî°¡Á¶ÀÎÀº °øÅëµÈ ÄÃ·³ÀÇ µ¥ÀÌÅÍ°¡ °°Àº µ¥ÀÌÅÍ¸¸À» Á¶È¸ÇÏ´Â Á¶ÀÎ
+-- »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, ¾÷¹«, ±Þ¿©, º¸³Ê½º, ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§, ºÎ¼­Áö¿ª Á¶È¸
+-- ANSI Ç¥ÁØ ¹æ½Ä
 SELECT E.ENO	
 	 , E.ENAME
 	 , E.JOB
@@ -57,7 +57,7 @@ SELECT E.ENO
 	JOIN DEPT D
 	  ON E.DNO = D.DNO;
 	 
--- ORACLEì—ì„œë§Œ ì‚¬ìš©í•˜ëŠ” ë°©ì‹ì˜ JOIN
+-- ORACLE¿¡¼­¸¸ »ç¿ëÇÏ´Â ¹æ½ÄÀÇ JOIN
 SELECT E.ENO	
 	 , E.ENAME
 	 , E.JOB
@@ -71,8 +71,8 @@ SELECT E.ENO
 	   , DEPT D
 	WHERE E.DNO = D.DNO;
 
--- ì„¸ ê°œ í…Œì´ë¸” ì´ìƒì˜ í…Œì´ë¸” ì¡°ì¸
--- í•™ìƒì˜ í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ê¸°ë§ê³ ì‚¬ì„±ì  ì¡°íšŒ
+-- ¼¼ °³ Å×ÀÌºí ÀÌ»óÀÇ Å×ÀÌºí Á¶ÀÎ
+-- ÇÐ»ýÀÇ ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±â¸»°í»ç¼ºÀû Á¶È¸
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.CNO
@@ -85,7 +85,7 @@ SELECT ST.SNO
       ON SC.CNO = C.CNO
      ORDER BY SNO;
 
--- í•™ìƒì˜ í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ê¸°ë§ê³ ì‚¬ì„±ì , ë‹´ë‹¹êµìˆ˜ ë²ˆí˜¸, ë‹´ë‹¹êµìˆ˜ ì´ë¦„ ì¡°íšŒ
+-- ÇÐ»ýÀÇ ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±â¸»°í»ç¼ºÀû, ´ã´ç±³¼ö ¹øÈ£, ´ã´ç±³¼ö ÀÌ¸§ Á¶È¸
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.CNO
@@ -102,9 +102,9 @@ SELECT ST.SNO
       ON C.PNO = P.PNO
      ORDER BY SNO;
 
--- 1-2. ë¹„ë“±ê°€ì¡°ì¸
--- ë¹„ë“±ê°€ ì¡°ì¸ì€ í•´ë‹¹ ì»¬ëŸ¼ì˜ ë°ì´í„° ê°’ì´ í¬ì§„ ìž‘ì€ì§€, ì‚¬ì´ê°’ì¸ì§€ ë¶€ë“±í˜¸ë‚˜ BETWEEN AND ì ˆì„ ì´ìš©í•´ì„œ ë¹„êµí•˜ëŠ” ì¡°ì¸ êµ¬ë¬¸
--- í•™ìƒì˜ í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ê¸°ë§ê³ ì‚¬ ì„±ì , ê¸°ë§ê³ ì‚¬ ì„±ì ì˜ ë“±ê¸‰ ì¡°íšŒ
+-- 1-2. ºñµî°¡Á¶ÀÎ
+-- ºñµî°¡ Á¶ÀÎÀº ÇØ´ç ÄÃ·³ÀÇ µ¥ÀÌÅÍ °ªÀÌ Å©Áø ÀÛÀºÁö, »çÀÌ°ªÀÎÁö ºÎµîÈ£³ª BETWEEN AND ÀýÀ» ÀÌ¿ëÇØ¼­ ºñ±³ÇÏ´Â Á¶ÀÎ ±¸¹®
+-- ÇÐ»ýÀÇ ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±â¸»°í»ç ¼ºÀû, ±â¸»°í»ç ¼ºÀûÀÇ µî±Þ Á¶È¸
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.CNO
@@ -117,12 +117,12 @@ SELECT ST.SNO
 	JOIN COURSE C
 	  ON SC.CNO = C.CNO
 	JOIN SCGRADE GR
-	--ë¹„ë“±ê°€ì¡°ì¸ì‚¬ìš©
+	--ºñµî°¡Á¶ÀÎ»ç¿ë
 	  ON SC.RESULT <= GR.HISCORE 
 	 AND SC.RESULT >= GR.LOSCORE
 	ORDER BY ST.SNO, SC.CNO;
 
--- í•™ìƒì˜ í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ê¸°ë§ê³ ì‚¬ ì„±ì , ê¸°ë§ê³ ì‚¬ ì„±ì ì˜ ë“±ê¸‰ ì¡°íšŒ(BETWEEN AND ì ˆ ì‚¬ìš©)
+-- ÇÐ»ýÀÇ ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±â¸»°í»ç ¼ºÀû, ±â¸»°í»ç ¼ºÀûÀÇ µî±Þ Á¶È¸(BETWEEN AND Àý »ç¿ë)
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.CNO
@@ -135,11 +135,11 @@ SELECT ST.SNO
 	JOIN COURSE C
 	  ON SC.CNO = C.CNO
 	JOIN SCGRADE GR
-	--ë¹„ë“±ê°€ì¡°ì¸ì‚¬ìš©
+	--ºñµî°¡Á¶ÀÎ»ç¿ë
 	  ON SC.RESULT BETWEEN GR.LOSCORE AND GR.HISCORE 
 	ORDER BY ST.SNO, SC.CNO;
 
--- ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ê¸‰ì—¬, ê¸‰ì—¬ë“±ê¸‰ ì¡°íšŒ(EMP, SALGRADE)
+-- »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, ±Þ¿©, ±Þ¿©µî±Þ Á¶È¸(EMP, SALGRADE)
 SELECT E.ENO 
 	 , E.ENAME 
 	 , E.SAL 
@@ -148,9 +148,9 @@ SELECT E.ENO
 	JOIN SALGRADE S
 	  ON E.SAL BETWEEN S.LOSAL AND S.HISAL;
 	 
--- 1-3. ì…€í”„ì¡°ì¸
--- ì¡°ì¸ë˜ëŠ” ë‘ í…Œì´ë¸”ì´ ë™ì¼í•  ë•Œ ì…€í”„ì¡°ì¸ì´ë¼ ë¶€ë¥¸ë‹¤.
--- ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ì‚¬ìˆ˜ë²ˆí˜¸, ì‚¬ìˆ˜ì´ë¦„
+-- 1-3. ¼¿ÇÁÁ¶ÀÎ
+-- Á¶ÀÎµÇ´Â µÎ Å×ÀÌºíÀÌ µ¿ÀÏÇÒ ¶§ ¼¿ÇÁÁ¶ÀÎÀÌ¶ó ºÎ¸¥´Ù.
+-- »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, »ç¼ö¹øÈ£, »ç¼öÀÌ¸§
 SELECT E.ENO
 	 , E.ENAME
 	 , E.MGR
@@ -160,9 +160,9 @@ SELECT E.ENO
 	  ON E.MGR = EM.ENO;
 
 -- 1-4. CROSS JOIN
--- ì—¬ëŸ¬ í…Œì´ë¸”ì„ ì¡°ì¸í•  ë•Œ ì¡°ì¸ ì¡°ê±´ì„ ì§€ì •í•˜ì§€ ì•Šìœ¼ë©´ cross joinì´ ì¼ì–´ë‚œë‹¤.
--- cross joinì€ ì¡°ì¸ë˜ëŠ” ëª¨ë“  í…Œì´ë¸”ì˜ ë°ì´í„°ë“¤ì´ 1ëŒ€1ë¡œ ë§¤í•‘ë˜ì–´ ì¡°íšŒë˜ëŠ” í˜„ìƒì´ë‹¤.
--- í…Œì´ë¸”ë“¤ì„ ì¡°ì¸í•  ë•ŒëŠ” í•­ìƒ ì¡°ì¸ ì¡°ê±´ì„ ëª…ì‹œí•˜ì—¬ cross joinì´ ì¼ì–´ë‚˜ì§€ ì•Šë„ë¡ í•œë‹¤.
+-- ¿©·¯ Å×ÀÌºíÀ» Á¶ÀÎÇÒ ¶§ Á¶ÀÎ Á¶°ÇÀ» ÁöÁ¤ÇÏÁö ¾ÊÀ¸¸é cross joinÀÌ ÀÏ¾î³­´Ù.
+-- cross joinÀº Á¶ÀÎµÇ´Â ¸ðµç Å×ÀÌºíÀÇ µ¥ÀÌÅÍµéÀÌ 1´ë1·Î ¸ÅÇÎµÇ¾î Á¶È¸µÇ´Â Çö»óÀÌ´Ù.
+-- Å×ÀÌºíµéÀ» Á¶ÀÎÇÒ ¶§´Â Ç×»ó Á¶ÀÎ Á¶°ÇÀ» ¸í½ÃÇÏ¿© cross joinÀÌ ÀÏ¾î³ªÁö ¾Êµµ·Ï ÇÑ´Ù.
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.CNO
@@ -173,20 +173,20 @@ SELECT ST.SNO
 	   , COURSE C;
 
 -- 2. OUTER JOIN
--- OUTER JOINì€ INNER JOIN ê²°ê³¼ì— ì¶”ê°€ë¡œ ê¸°ì¤€ì´ ë˜ëŠ” í…Œì´ë¸”ì— ë‚¨ì•„ìžˆëŠ” ë°ì´í„°ë¥¼ ì¡°íšŒí•˜ëŠ” ê¸°ëŠ¥
--- ê¸°ì¤€ì´ ë˜ëŠ” í…Œì´ë¸”ì€ OUTER JOIN ì•žì— LEFT, RIGHT, FULLë¡œ ì§€ì •í•œë‹¤.
--- LEFTë¡œ ê¸°ì¤€ í…Œì´ë¸”ì„ ì§€ì •í•˜ë©´ FROM ì ˆì— ì‚¬ìš©í•œ í…Œì´ë¸”ì´ ê¸°ì¤€ì´ ë˜ê³ 
--- RIGHTë¡œ ê¸°ì¤€ í…Œì´ë¸”ì„ ì§€ì •í•˜ë©´ ì¡°ì¸ë˜ëŠ” í…Œì´ë¸”ì´ ê¸°ì¤€ì´ ëœë‹¤.
--- FULLë¡œ ê¸°ì¤€ í…Œì´ë¸”ì„ ì§€ì •í•˜ë©´ FROMì ˆ í…Œì´ë¸”ê³¼ ì¡°ì¸ë˜ëŠ” í…Œì´ë¸” ëª¨ë‘ê°€ ê¸°ì¤€ì´ ë˜ì–´ INNER JOIN ê²°ê³¼ì— 
--- FROM ì ˆ í…Œì´ë¸”ì—ë§Œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ì™€ ì¡°ì¸ë˜ëŠ” í…Œì´ë¸”ì—ë§Œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ë„ ëª¨ë‘ ì¶”ê°€ë¡œ ì¡°íšŒí•œë‹¤.
+-- OUTER JOINÀº INNER JOIN °á°ú¿¡ Ãß°¡·Î ±âÁØÀÌ µÇ´Â Å×ÀÌºí¿¡ ³²¾ÆÀÖ´Â µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÏ´Â ±â´É
+-- ±âÁØÀÌ µÇ´Â Å×ÀÌºíÀº OUTER JOIN ¾Õ¿¡ LEFT, RIGHT, FULL·Î ÁöÁ¤ÇÑ´Ù.
+-- LEFT·Î ±âÁØ Å×ÀÌºíÀ» ÁöÁ¤ÇÏ¸é FROM Àý¿¡ »ç¿ëÇÑ Å×ÀÌºíÀÌ ±âÁØÀÌ µÇ°í
+-- RIGHT·Î ±âÁØ Å×ÀÌºíÀ» ÁöÁ¤ÇÏ¸é Á¶ÀÎµÇ´Â Å×ÀÌºíÀÌ ±âÁØÀÌ µÈ´Ù.
+-- FULL·Î ±âÁØ Å×ÀÌºíÀ» ÁöÁ¤ÇÏ¸é FROMÀý Å×ÀÌºí°ú Á¶ÀÎµÇ´Â Å×ÀÌºí ¸ðµÎ°¡ ±âÁØÀÌ µÇ¾î INNER JOIN °á°ú¿¡ 
+-- FROM Àý Å×ÀÌºí¿¡¸¸ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¿Í Á¶ÀÎµÇ´Â Å×ÀÌºí¿¡¸¸ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍµµ ¸ðµÎ Ãß°¡·Î Á¶È¸ÇÑ´Ù.
 	  
 -- 2-1. LEFT OUTER JOIN
--- FROM ì ˆì˜ í…Œì´ë¸”ì—ë§Œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ë¥¼ ì¶”ê°€ë¡œ ì¡°íšŒí•˜ëŠ” JOIN
--- í•™ìƒì˜ í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ê¸°ë§ê³ ì‚¬ ì„±ì ì„ ì¡°íšŒí•˜ëŠ” ë° ê¸°ë§ê³ ì‚¬ ì„±ì ì´ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” í•™ìƒì˜ ì •ë³´ë„ ì¡°íšŒ
-INSERT INTO STUDENT VALUES('999999', 'ê³ ê¸°ì²œ', 'ë‚¨', 1, 'ì»´ê³µ', 3.0);
+-- FROM ÀýÀÇ Å×ÀÌºí¿¡¸¸ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¸¦ Ãß°¡·Î Á¶È¸ÇÏ´Â JOIN
+-- ÇÐ»ýÀÇ ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, ±â¸»°í»ç ¼ºÀûÀ» Á¶È¸ÇÏ´Â µ¥ ±â¸»°í»ç ¼ºÀûÀÌ Á¸ÀçÇÏÁö ¾Ê´Â ÇÐ»ýÀÇ Á¤º¸µµ Á¶È¸
+INSERT INTO STUDENT VALUES('999999', '°í±âÃµ', '³²', 1, 'ÄÄ°ø', 3.0);
 COMMIT;
 
--- ANSI í‘œì¤€ ë°©ì‹
+-- ANSI Ç¥ÁØ ¹æ½Ä
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.RESULT
@@ -195,8 +195,8 @@ SELECT ST.SNO
 	  ON ST.SNO = SC.SNO
 	ORDER BY ST.SNO DESC;
 
--- ORACLEì—ì„œë§Œ ì‚¬ìš©í•˜ëŠ” LEFT OUTER JOIN ë°©ì‹ (+) ê¸°í˜¸ë¥¼ ì´ìš©í•œë‹¤
--- (+) ê¸°í˜¸ëŠ” LEFT OUTER JOINê³¼ RIGHT OUTER JOINë§Œ ì‚¬ìš©ê°€ëŠ¥
+-- ORACLE¿¡¼­¸¸ »ç¿ëÇÏ´Â LEFT OUTER JOIN ¹æ½Ä (+) ±âÈ£¸¦ ÀÌ¿ëÇÑ´Ù
+-- (+) ±âÈ£´Â LEFT OUTER JOIN°ú RIGHT OUTER JOIN¸¸ »ç¿ë°¡´É
 SELECT ST.SNO
 	 , ST.SNAME
 	 , SC.RESULT
@@ -205,17 +205,17 @@ SELECT ST.SNO
 	WHERE ST.SNO = SC.SNO(+)
 	ORDER BY ST.SNO DESC;
 
--- ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, êµìˆ˜ë²ˆí˜¸, êµìˆ˜ì´ë¦„ì„ ì¡°íšŒí•˜ëŠ”ë° ë‹´ë‹¹êµìˆ˜ê°€ ë°°ì •ë˜ì§€ ì•Šì€ ê³¼ëª©ì •ë³´ë„ ì¡°íšŒ
--- NVL ë‹´ë‹¹êµìˆ˜ê°€ ë°°ì •ë˜ì§€ ì•Šì€ ê³¼ëª©ì˜ êµìˆ˜ë²ˆí˜¸ì™€ êµìˆ˜ì´ë¦„ì€ ë‹´ë‹¹êµìˆ˜ ë°°ì •ë˜ì§€ ì•ŠìŒ ìœ¼ë¡œ ì¡°íšŒ
+-- °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±³¼ö¹øÈ£, ±³¼öÀÌ¸§À» Á¶È¸ÇÏ´Âµ¥ ´ã´ç±³¼ö°¡ ¹èÁ¤µÇÁö ¾ÊÀº °ú¸ñÁ¤º¸µµ Á¶È¸
+-- NVL ´ã´ç±³¼ö°¡ ¹èÁ¤µÇÁö ¾ÊÀº °ú¸ñÀÇ ±³¼ö¹øÈ£¿Í ±³¼öÀÌ¸§Àº ´ã´ç±³¼ö ¹èÁ¤µÇÁö ¾ÊÀ½ À¸·Î Á¶È¸
 SELECT C.CNO 
 	 , C.CNAME 
-	 , NVL(C.PNO, 'ë‹´ë‹¹êµìˆ˜ ë°°ì •ë˜ì§€ ì•ŠìŒ') AS PNO 
-	 , NVL(P.PNAME, 'ë‹´ë‹¹êµìˆ˜ ë°°ì •ë˜ì§€ ì•ŠìŒ') AS PNAME 
+	 , NVL(C.PNO, '´ã´ç±³¼ö ¹èÁ¤µÇÁö ¾ÊÀ½') AS PNO 
+	 , NVL(P.PNAME, '´ã´ç±³¼ö ¹èÁ¤µÇÁö ¾ÊÀ½') AS PNAME 
 	FROM COURSE C
 	LEFT OUTER JOIN PROFESSOR P
 	  ON C.PNO = P.PNO;
 
--- ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ì‚¬ìˆ˜ë²ˆí˜¸, ì‚¬ìˆ˜ì´ë¦„ ì¡°íšŒí•˜ëŠ” ë° ì‚¬ìˆ˜ê°€ ë°°ì •ë˜ì§€ ì•Šì€ ì‚¬ì›ì˜ ì •ë³´ë„ ì¡°íšŒ(ì…€í”„ì¡°ì¸)
+-- »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, »ç¼ö¹øÈ£, »ç¼öÀÌ¸§ Á¶È¸ÇÏ´Â µ¥ »ç¼ö°¡ ¹èÁ¤µÇÁö ¾ÊÀº »ç¿øÀÇ Á¤º¸µµ Á¶È¸(¼¿ÇÁÁ¶ÀÎ)
 SELECT E.ENO
 	 , E.ENAME
 	 , E.MGR
@@ -224,7 +224,7 @@ SELECT E.ENO
 	LEFT OUTER JOIN EMP EM
 	  ON E.MGR = EM.ENO;
 	 
--- LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN ì—ì„œ OUTERëŠ” ìƒëžµ ê°€ëŠ¥í•˜ë‹¤.
+-- LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN ¿¡¼­ OUTER´Â »ý·« °¡´ÉÇÏ´Ù.
 SELECT E.ENO
 	 , E.ENAME
 	 , E.MGR
@@ -235,8 +235,8 @@ SELECT E.ENO
 	 
 	 
 -- 2-2. RIGHT OUTER JOIN
--- INNER JOIN ì¡°íšŒ ê²°ê³¼ì™€ ì¶”ê°€ë¡œ ì¡°ì¸ë˜ëŠ” í…Œì´ë¸”ì—ë§Œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ë¥¼ ì¡°íšŒí•˜ëŠ” JOIN
--- ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, êµìˆ˜ë²ˆí˜¸, êµìˆ˜ì´ë¦„ ì¡°íšŒí•˜ëŠ”ë° ì•„ì§ ë‹´ë‹¹ê³¼ëª©ì„ ë°°ì •ë°›ì§€ ëª»í•œ êµìˆ˜ ì •ë³´ë„ ì¡°íšŒ
+-- INNER JOIN Á¶È¸ °á°ú¿Í Ãß°¡·Î Á¶ÀÎµÇ´Â Å×ÀÌºí¿¡¸¸ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÏ´Â JOIN
+-- °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±³¼ö¹øÈ£, ±³¼öÀÌ¸§ Á¶È¸ÇÏ´Âµ¥ ¾ÆÁ÷ ´ã´ç°ú¸ñÀ» ¹èÁ¤¹ÞÁö ¸øÇÑ ±³¼ö Á¤º¸µµ Á¶È¸
 SELECT C.CNO
 	 , C.CNAME
 	 , P.PNO
@@ -254,9 +254,9 @@ SELECT C.CNO
 	  ON C.PNO = P.PNO;
 
 -- 3. FULL OUTER JOIN
--- FULL OUTER JOINì€ INNER JOINëœ ì¡°íšŒ ê²°ê³¼ì— FROM ì ˆ í…Œì´ë¸”ì—ë§Œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°, ì¡°ì¸ë˜ëŠ” í…Œì´ë¸”ì—ë§Œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°
--- ëª¨ë‘ ì¡°íšŒí•˜ëŠ” JOIN
--- ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, êµìˆ˜ë²ˆí˜¸, êµìˆ˜ì´ë¦„ ì¡°íšŒí•˜ëŠ”ë° êµìˆ˜ê°€ ë°°ì •ë˜ì§€ ì•Šì€ ê³¼ëª©ê³¼ ë‹´ë‹¹ê³¼ëª©ì´ ë°°ì •ë˜ì§€ ì•Šì€ êµìˆ˜ì˜ ì •ë³´ë„ ëª¨ë‘ ì¡°íšŒ
+-- FULL OUTER JOINÀº INNER JOINµÈ Á¶È¸ °á°ú¿¡ FROM Àý Å×ÀÌºí¿¡¸¸ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ, Á¶ÀÎµÇ´Â Å×ÀÌºí¿¡¸¸ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ
+-- ¸ðµÎ Á¶È¸ÇÏ´Â JOIN
+-- °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±³¼ö¹øÈ£, ±³¼öÀÌ¸§ Á¶È¸ÇÏ´Âµ¥ ±³¼ö°¡ ¹èÁ¤µÇÁö ¾ÊÀº °ú¸ñ°ú ´ã´ç°ú¸ñÀÌ ¹èÁ¤µÇÁö ¾ÊÀº ±³¼öÀÇ Á¤º¸µµ ¸ðµÎ Á¶È¸
 SELECT C.CNO
 	 , C.CNAME
 	 , P.PNO
@@ -265,11 +265,11 @@ SELECT C.CNO
 	FULL OUTER JOIN PROFESSOR P
 	  ON C.PNO = P.PNO;
 	 
-INSERT INTO EMP VALUES ('9999', 'ê³ ê¸°ì²œ', 'ê°œë°œ', NULL, SYSDATE, 3000, 300, NULL);
-INSERT INTO DEPT VALUES ('70', 'ë¶„ì„', 'ì„œìš¸', NULL);
+INSERT INTO EMP VALUES ('9999', '°í±âÃµ', '°³¹ß', NULL, SYSDATE, 3000, 300, NULL);
+INSERT INTO DEPT VALUES ('70', 'ºÐ¼®', '¼­¿ï', NULL);
 COMMIT;
--- ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„ì„ ì¡°íšŒí•˜ëŠ”ë° ë¶€ì„œë¥¼ ë°°ì •ë°›ì§€ ëª»í•œ ì‚¬ì›ì˜ ì •ë³´ì™€ ì‚¬ì›ì´ í•œëª…ë„ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ë¶€ì„œì˜
--- ì •ë³´ë„ í•¨ê»˜ ì¡°íšŒ
+-- »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§À» Á¶È¸ÇÏ´Âµ¥ ºÎ¼­¸¦ ¹èÁ¤¹ÞÁö ¸øÇÑ »ç¿øÀÇ Á¤º¸¿Í »ç¿øÀÌ ÇÑ¸íµµ Á¸ÀçÇÏÁö ¾Ê´Â ºÎ¼­ÀÇ
+-- Á¤º¸µµ ÇÔ²² Á¶È¸
 SELECT E.ENO
 	 , E.ENAME
 	 , D.DNO
@@ -278,8 +278,8 @@ SELECT E.ENO
 	FULL JOIN DEPT D
 	  ON E.DNO = D.DNO;
 
--- 4. ë‹¤ì¤‘ í…Œì´ë¸” ì¡°ì¸
--- ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ê¸‰ì—¬, ê¸‰ì—¬ë“±ê¸‰, ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„ ì¡°íšŒí•˜ëŠ”ë° ë¶€ì„œë¥¼ ë°°ì •ë°›ì§€ ì•Šì€ ì‚¬ì›ì˜ ì •ë³´ë„ ì¡°íšŒ
+-- 4. ´ÙÁß Å×ÀÌºí Á¶ÀÎ
+-- »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, ±Þ¿©, ±Þ¿©µî±Þ, ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§ Á¶È¸ÇÏ´Âµ¥ ºÎ¼­¸¦ ¹èÁ¤¹ÞÁö ¾ÊÀº »ç¿øÀÇ Á¤º¸µµ Á¶È¸
 SELECT E.ENO
 	 , E.ENAME
 	 , E.SAL
@@ -292,11 +292,11 @@ SELECT E.ENO
 	LEFT JOIN DEPT D
 	  ON E.DNO = D.DNO;
 
--- ONì ˆì—ë„ ì¡°ê±´ì„ ì—¬ëŸ¬ê°œ ì¶”ê°€í•  ë•ŒëŠ” WHERE ì ˆê³¼ ë§ˆì°¬ê°€ì§€ë¡œ
--- AND, ORë¥¼ ì‚¬ìš©í•´ì„œ ì—¬ëŸ¬ê°œ ì¡°ê±´ì„ ëª…ì‹œí•  ìˆ˜ ìžˆë‹¤.
--- ê¸‰ì—¬ê°€ 3000ì´ìƒì´ê³  ë¶€ì„œë²ˆí˜¸ê°€ 01, 10, 20, 60ì¸ 
--- ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„, ê¸‰ì—¬, ê¸‰ì—¬ë“±ê¸‰, ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„ ì¡°íšŒí•˜ëŠ”ë° ë¶€ì„œë¥¼ ë°°ì •ë°›ì§€ ì•Šì€ ì‚¬ì›ì˜ ì •ë³´ë„ ì¡°íšŒ
--- OUTER JOINì´ë¼ì„œ ì¡°ì¸ì¡°ê±´ì´ ë‹¬ë¼ì ¸ì„œ ë‹¤ë¥¸ ë°ì´í„°ê°€ ë‚˜ì˜¤ê²Œ ëœë‹¤.
+-- ONÀý¿¡µµ Á¶°ÇÀ» ¿©·¯°³ Ãß°¡ÇÒ ¶§´Â WHERE Àý°ú ¸¶Âù°¡Áö·Î
+-- AND, OR¸¦ »ç¿ëÇØ¼­ ¿©·¯°³ Á¶°ÇÀ» ¸í½ÃÇÒ ¼ö ÀÖ´Ù.
+-- ±Þ¿©°¡ 3000ÀÌ»óÀÌ°í ºÎ¼­¹øÈ£°¡ 01, 10, 20, 60ÀÎ 
+-- »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§, ±Þ¿©, ±Þ¿©µî±Þ, ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§ Á¶È¸ÇÏ´Âµ¥ ºÎ¼­¸¦ ¹èÁ¤¹ÞÁö ¾ÊÀº »ç¿øÀÇ Á¤º¸µµ Á¶È¸
+-- OUTER JOINÀÌ¶ó¼­ Á¶ÀÎÁ¶°ÇÀÌ ´Þ¶óÁ®¼­ ´Ù¸¥ µ¥ÀÌÅÍ°¡ ³ª¿À°Ô µÈ´Ù.
 SELECT E.ENO
 	 , E.ENAME
 	 , E.SAL
@@ -311,7 +311,7 @@ SELECT E.ENO
 	  ON E.DNO = D.DNO
 	 AND E.DNO IN ('01', '10', '20', '60'); 
 
--- ë‹¤ë¥¸ ë°ì´í„°ê°€ ì¡°íšŒë˜ëŠ” ì¡°ê±´
+-- ´Ù¸¥ µ¥ÀÌÅÍ°¡ Á¶È¸µÇ´Â Á¶°Ç
 SELECT E.ENO
 	 , E.ENAME
 	 , E.SAL
@@ -363,7 +363,7 @@ SELECT E.ENO
 	WHERE E.SAL >= 3000
 	  AND E.DNO IN ('01', '10', '20', '60');
 
--- í•™ìƒì˜ í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ê¸°ë§ê³ ì‚¬ ì„±ì , ê¸°ë§ê³ ì‚¬ ì„±ì  ë“±ê¸‰, ë‹´ë‹¹êµìˆ˜ ë²ˆí˜¸, ë‹´ë‹¹êµìˆ˜ ì´ë¦„ ì¡°íšŒ
+-- ÇÐ»ýÀÇ ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ±â¸»°í»ç ¼ºÀû, ±â¸»°í»ç ¼ºÀû µî±Þ, ´ã´ç±³¼ö ¹øÈ£, ´ã´ç±³¼ö ÀÌ¸§ Á¶È¸
 SELECT P.PNO
 	 , P.PNAME
 	 , C.CNO

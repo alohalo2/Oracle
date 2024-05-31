@@ -1,10 +1,10 @@
--- 1. ë‹¤ì¤‘í–‰í•¨ìˆ˜(GROUP í•¨ìˆ˜)
--- ë‹¤ì¤‘í–‰ í•¨ìˆ˜ëŠ” ì—¬ëŸ¬ê°œì˜ ë°ì´í„°ê°€ ë“¤ì–´ì™€ì„œ ì—¬ëŸ¬ê°œì˜ ë°ì´í„°ê°€ ë¦¬í„´ë˜ëŠ” í•¨ìˆ˜
--- ê·¸ë£¹í•¨ìˆ˜ê°€ ë‹¤ì¤‘í–‰ í•¨ìˆ˜ì— í¬í•¨ëœë‹¤.
--- ê·¸ë£¹í•¨ìˆ˜ëŠ” ë°ì´í„°ë“¤ì˜ í†µê³„ë¥¼ ë‚´ëŠ” í•¨ìˆ˜ë“¤ì´ ëŒ€ë¶€ë¶„ì´ë©° GROUP BYë¼ëŠ” í‚¤ì›Œë“œì™€ í•¨ê»˜ ì‚¬ìš©ëœë‹¤.
--- GROUP BYëŠ” ë°ì´í„°ë“¤ì˜ í†µê³„ë¥¼ ë‚´ëŠ”ë° ì–´ë–¤ ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ê·¸ë£¹í™”í•˜ì—¬ í†µê³„ë¥¼ ë‚¼ê±´ì§€ ì§€ì •í•˜ëŠ” êµ¬ë¬¸ì´ë‹¤.
--- ê·¸ë£¹í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•  ë•Œ ì£¼ì˜í•  ì ì€ SELECT ì ˆì— í¬í•¨ëœ ëª¨ë“  ì»¬ëŸ¼ë“¤ì€ GROUP BY ì ˆì— ëª…ì‹œë¼ì•¼ í•œë‹¤.
--- í•™ë…„ë³„ í•™ìƒë“¤ì˜ í‰ì ì˜ í‰ê· ì„ êµ¬í•˜ëŠ” ê·¸ë£¹í•¨ìˆ˜
+-- 1. ´ÙÁßÇàÇÔ¼ö(GROUP ÇÔ¼ö)
+-- ´ÙÁßÇà ÇÔ¼ö´Â ¿©·¯°³ÀÇ µ¥ÀÌÅÍ°¡ µé¾î¿Í¼­ ¿©·¯°³ÀÇ µ¥ÀÌÅÍ°¡ ¸®ÅÏµÇ´Â ÇÔ¼ö
+-- ±×·ìÇÔ¼ö°¡ ´ÙÁßÇà ÇÔ¼ö¿¡ Æ÷ÇÔµÈ´Ù.
+-- ±×·ìÇÔ¼ö´Â µ¥ÀÌÅÍµéÀÇ Åë°è¸¦ ³»´Â ÇÔ¼öµéÀÌ ´ëºÎºÐÀÌ¸ç GROUP BY¶ó´Â Å°¿öµå¿Í ÇÔ²² »ç¿ëµÈ´Ù.
+-- GROUP BY´Â µ¥ÀÌÅÍµéÀÇ Åë°è¸¦ ³»´Âµ¥ ¾î¶² ÄÃ·³À» ±âÁØÀ¸·Î ±×·ìÈ­ÇÏ¿© Åë°è¸¦ ³¾°ÇÁö ÁöÁ¤ÇÏ´Â ±¸¹®ÀÌ´Ù.
+-- ±×·ìÇÔ¼ö¸¦ »ç¿ëÇÒ ¶§ ÁÖÀÇÇÒ Á¡Àº SELECT Àý¿¡ Æ÷ÇÔµÈ ¸ðµç ÄÃ·³µéÀº GROUP BY Àý¿¡ ¸í½ÃµÅ¾ß ÇÑ´Ù.
+-- ÇÐ³âº° ÇÐ»ýµéÀÇ ÆòÁ¡ÀÇ Æò±ÕÀ» ±¸ÇÏ´Â ±×·ìÇÔ¼ö
 SELECT *
 	FROM STUDENT
 	ORDER BY SYEAR;
@@ -16,7 +16,7 @@ SELECT SYEAR
 	GROUP BY SYEAR, SNAME
 	ORDER BY SYEAR, SNAME;
 
--- SELECTì ˆì— í¬í•¨ëœ ì»¬ëŸ¼ë“¤ì´ ëª¨ë‘ GROUP BYì— ëª…ì‹œë¼ì•¼ í•˜ëŠ” ê·œì¹™ë•Œë¬¸ì— ë°ì´í„°ê°€ ë³€ì§ˆëœë‹¤.
+-- SELECTÀý¿¡ Æ÷ÇÔµÈ ÄÃ·³µéÀÌ ¸ðµÎ GROUP BY¿¡ ¸í½ÃµÅ¾ß ÇÏ´Â ±ÔÄ¢¶§¹®¿¡ µ¥ÀÌÅÍ°¡ º¯ÁúµÈ´Ù.
 SELECT SYEAR
 	 , MAJOR
 	 , AVG(AVR)
@@ -24,7 +24,7 @@ SELECT SYEAR
 	GROUP BY SYEAR, MAJOR
 	ORDER BY SYEAR;
 
--- ì›í•˜ëŠ” í†µê³„í•¨ìˆ˜ ë°ì´í„°ë¥¼ ì¡°íšŒí•˜ëŠ” ì¿¼ë¦¬ë¥¼ ì„œë¸Œì¿¼ë¦¬ë¡œ ë§Œë“¤ì–´ì„œ ë‹¤ë¥¸ ë°ì´í„°ë“¤ê³¼ ì¡°ì¸í•˜ì—¬ ì‚¬ìš©í•œë‹¤.
+-- ¿øÇÏ´Â Åë°èÇÔ¼ö µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÏ´Â Äõ¸®¸¦ ¼­ºêÄõ¸®·Î ¸¸µé¾î¼­ ´Ù¸¥ µ¥ÀÌÅÍµé°ú Á¶ÀÎÇÏ¿© »ç¿ëÇÑ´Ù.
 SELECT ST.SNO
 	 , ST.SNAME
 	 , ST.MAJOR
@@ -41,14 +41,14 @@ SELECT ST.SNO
 	) A
 	ON ST.SYEAR = A.SYEAR;
 	
--- 1-1. MAX: ë°ì´í„°ë“¤ì˜ ìµœê³  ê°’ì„ ì¡°íšŒí•˜ëŠ” ê·¸ë£¹í•¨ìˆ˜
--- ê³¼ëª©ë³„ ê¸°ë§ê³ ì‚¬ì˜ ìµœê³ ì  ì¡°íšŒ
+-- 1-1. MAX: µ¥ÀÌÅÍµéÀÇ ÃÖ°í °ªÀ» Á¶È¸ÇÏ´Â ±×·ìÇÔ¼ö
+-- °ú¸ñº° ±â¸»°í»çÀÇ ÃÖ°íÁ¡ Á¶È¸
 SELECT CNO
 	 , MAX(RESULT)
 	FROM SCORE
 	GROUP BY CNO;
 
--- ê³¼ëª©ë³„ ê¸°ë§ê³ ì‚¬ ìµœê³ ì  ì¡°íšŒí•˜ëŠ”ë° ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ì ìˆ˜ ì¡°íšŒ
+-- °ú¸ñº° ±â¸»°í»ç ÃÖ°íÁ¡ Á¶È¸ÇÏ´Âµ¥ °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, Á¡¼ö Á¶È¸
 SELECT SC.CNO
 	 , C.CNAME
 	 , MAX(SC.RESULT)
@@ -57,7 +57,7 @@ SELECT SC.CNO
 	  ON SC.CNO = C.CNO
 	GROUP BY SC.CNO, C.CNAME;
 
--- ê³¼ëª©ë³„ ê¸°ë§ê³ ì‚¬ ìµœê³ ì  ì¡°íšŒí•˜ëŠ”ë° ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, ì ìˆ˜ ì¡°íšŒ
+-- °ú¸ñº° ±â¸»°í»ç ÃÖ°íÁ¡ Á¶È¸ÇÏ´Âµ¥ °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, Á¡¼ö Á¶È¸
 SELECT A.CNO
 	 , A.CNAME
 	 , ST.SNO
@@ -80,7 +80,7 @@ SELECT A.CNO
 	JOIN STUDENT ST
 	  ON SSC.SNO = ST.SNO;
 
--- ìž˜ëª»ëœ ì¿¼ë¦¬
+-- Àß¸øµÈ Äõ¸®
 SELECT SC.CNO
 	 , C.CNAME
 	 , ST.SNO
@@ -93,26 +93,26 @@ SELECT SC.CNO
 	  ON SC.SNO = ST.SNO
 	GROUP BY SC.CNO, C.CNAME, ST.SNO, ST.SNAME;
 
--- ë°ì´í„° ì „ì²´ì— ëŒ€í•œ í†µê³„ë¥¼ ë‚¼ë•ŒëŠ” GROUP BYë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
+-- µ¥ÀÌÅÍ ÀüÃ¼¿¡ ´ëÇÑ Åë°è¸¦ ³¾¶§´Â GROUP BY¸¦ »ç¿ëÇÏÁö ¾Ê´Â´Ù.
 SELECT MAX(AVR)
     FROM STUDENT;
     
--- 1-2. MIN: ê·¸ë£¹í™”ëœ ë°ì´í„°ì¤‘ ìµœì†Œê°’ì„ ì¡°íšŒí•˜ëŠ” í•¨ìˆ˜
--- í•™ë…„ ë³„ ìµœì € í‰ì  ì¡°íšŒ(í•™ë…„, í‰ì )
+-- 1-2. MIN: ±×·ìÈ­µÈ µ¥ÀÌÅÍÁß ÃÖ¼Ò°ªÀ» Á¶È¸ÇÏ´Â ÇÔ¼ö
+-- ÇÐ³â º° ÃÖÀú ÆòÁ¡ Á¶È¸(ÇÐ³â, ÆòÁ¡)
 SELECT SYEAR
 	 , MIN(AVR)
 	FROM STUDENT
 	GROUP BY SYEAR
 	ORDER BY SYEAR;
 
--- ë¶€ì„œë²ˆí˜¸, ë¶€ì„œë³„ ìµœì € ê¸‰ì—¬ ì¡°íšŒ
+-- ºÎ¼­¹øÈ£, ºÎ¼­º° ÃÖÀú ±Þ¿© Á¶È¸
 SELECT DNO
 	 , MIN(SAL)
 	FROM EMP
 	GROUP BY DNO
 	ORDER BY DNO;
 
--- ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„, ë¶€ì„œë³„ ìµœì € ê¸‰ì—¬ ì¡°íšŒ
+-- ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§, ºÎ¼­º° ÃÖÀú ±Þ¿© Á¶È¸
 SELECT E.DNO
 	 , D.DNAME
 	 , MIN(E.SAL)
@@ -122,8 +122,8 @@ SELECT E.DNO
 	GROUP BY E.DNO, D.DNAME
 	ORDER BY E.DNO;
 
--- ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„, ë¶€ì„œë³„ ìµœì € ê¸‰ì—¬, ìµœì €ê¸‰ì—¬ì— í•´ë‹¹í•˜ëŠ” ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„ ì¡°íšŒ
--- ìž˜ëª»ëœ GROUP BY
+-- ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§, ºÎ¼­º° ÃÖÀú ±Þ¿©, ÃÖÀú±Þ¿©¿¡ ÇØ´çÇÏ´Â »ç¿ø¹øÈ£, »ç¿øÀÌ¸§ Á¶È¸
+-- Àß¸øµÈ GROUP BY
 SELECT E.DNO
 	 , D.DNAME
 	 , MIN(E.SAL)
@@ -135,7 +135,7 @@ SELECT E.DNO
 	GROUP BY E.DNO, D.DNAME, E.ENO, E.ENAME
 	ORDER BY E.DNO;
 
--- í†µê³„í•¨ìˆ˜ì˜ ê°’ì´ ë³€ì§ˆë˜ì§€ ì•Šê²Œ í•˜ë ¤ë©´ í†µê³„í•¨ìˆ˜ë¥¼ ì¡°íšŒí•˜ëŠ” ì¿¼ë¦¬ë¥¼ ì„œë¸Œì¿¼ë¦¬ë¡œ ìž‘ì„±í•œë‹¤.
+-- Åë°èÇÔ¼öÀÇ °ªÀÌ º¯ÁúµÇÁö ¾Ê°Ô ÇÏ·Á¸é Åë°èÇÔ¼ö¸¦ Á¶È¸ÇÏ´Â Äõ¸®¸¦ ¼­ºêÄõ¸®·Î ÀÛ¼ºÇÑ´Ù.
 SELECT A.DNO
 	 , A.DNAME
 	 , A.MIN_SAL
@@ -155,17 +155,17 @@ SELECT A.DNO
 	  ON A.DNO = EE.DNO
 	 AND A.MIN_SAL = EE.SAL;
 	
--- 1-3. SUM: ê·¸ë£¹í™”ëœ ë°ì´í„°ì˜ ì´í•©ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜
--- ì‚¬ì›ë“¤ì˜ ì—…ë¬´ë³„ ë³´ë„ˆìŠ¤ì˜ ì´í•©
+-- 1-3. SUM: ±×·ìÈ­µÈ µ¥ÀÌÅÍÀÇ ÃÑÇÕÀ» ±¸ÇÏ´Â ÇÔ¼ö
+-- »ç¿øµéÀÇ ¾÷¹«º° º¸³Ê½ºÀÇ ÃÑÇÕ
 SELECT JOB
 	 , SUM(NVL(COMM, 0))
 	FROM EMP
 	GROUP BY JOB;
 
--- 1-4. COUNT: ê·¸ë£¹í™”ëœ ë°ì´í„°ì— ëŒ€í•œ ê°œìˆ˜ë¥¼ ì¡°íšŒí•˜ëŠ” í•¨ìˆ˜
--- COUNT(*): ëª¨ë“  ì»¬ëŸ¼ë°ì´í„°ì— ëŒ€í•œ í–‰ì˜ ê°œìˆ˜ë¥¼ ë¦¬í„´. íŠ¹ì • ì»¬ëŸ¼ì— NULLì´ í¬í•¨ë˜ì–´ ìžˆì–´ë„ ê°œìˆ˜ì— í¬í•¨í•œë‹¤.
--- COUNT(íŠ¹ì • ì»¬ëŸ¼ëª…): íŠ¹ì • ì»¬ëŸ¼ì— ëŒ€í•œ ëª¨ë“  í–‰ì˜ ê°œìˆ˜ë¥¼ ë¦¬í„´. ì§€ì •ëœ ì»¬ëŸ¼ì— NULLì´ ìžˆìœ¼ë©´ ì¹´ìš´íŒ…ì„ í•˜ì§€ ì•ŠëŠ”ë‹¤.
--- ë¶€ì„œë³„ ì‚¬ì›ìˆ˜ ì¡°íšŒ
+-- 1-4. COUNT: ±×·ìÈ­µÈ µ¥ÀÌÅÍ¿¡ ´ëÇÑ °³¼ö¸¦ Á¶È¸ÇÏ´Â ÇÔ¼ö
+-- COUNT(*): ¸ðµç ÄÃ·³µ¥ÀÌÅÍ¿¡ ´ëÇÑ ÇàÀÇ °³¼ö¸¦ ¸®ÅÏ. Æ¯Á¤ ÄÃ·³¿¡ NULLÀÌ Æ÷ÇÔµÇ¾î ÀÖ¾îµµ °³¼ö¿¡ Æ÷ÇÔÇÑ´Ù.
+-- COUNT(Æ¯Á¤ ÄÃ·³¸í): Æ¯Á¤ ÄÃ·³¿¡ ´ëÇÑ ¸ðµç ÇàÀÇ °³¼ö¸¦ ¸®ÅÏ. ÁöÁ¤µÈ ÄÃ·³¿¡ NULLÀÌ ÀÖÀ¸¸é Ä«¿îÆÃÀ» ÇÏÁö ¾Ê´Â´Ù.
+-- ºÎ¼­º° »ç¿ø¼ö Á¶È¸
 SELECT DNO
 	 , COUNT(*)
 	FROM EMP
@@ -176,8 +176,8 @@ SELECT DNO
 	FROM EMP
 	GROUP BY DNO;
 
--- 1-5. AVG: ê·¸ë£¹í™”ëœ ë°ì´í„°ì— ëŒ€í•œ í‰ê· ê°’ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜
--- ì „ê³µë³„ í•™ë…„ë³„ í‰ê·  í‰ì  ì¡°íšŒ
+-- 1-5. AVG: ±×·ìÈ­µÈ µ¥ÀÌÅÍ¿¡ ´ëÇÑ Æò±Õ°ªÀ» ±¸ÇÏ´Â ÇÔ¼ö
+-- Àü°øº° ÇÐ³âº° Æò±Õ ÆòÁ¡ Á¶È¸
 SELECT MAJOR
 	 , SYEAR
 	 , AVG(AVR)
@@ -185,7 +185,7 @@ SELECT MAJOR
 	GROUP BY MAJOR, SYEAR
 	ORDER BY MAJOR, SYEAR;
 
--- ì „ê³µë³„ í•™ë…„ë³„ í•™ìƒìˆ˜ ì¡°íšŒ
+-- Àü°øº° ÇÐ³âº° ÇÐ»ý¼ö Á¶È¸
 SELECT MAJOR
 	 , SYEAR
 	 , COUNT(*)
@@ -193,8 +193,8 @@ SELECT MAJOR
 	GROUP BY MAJOR, SYEAR 
 	ORDER BY MAJOR, SYEAR;
 
--- 1-6. HAVING: GROUP BY ì— ëª…ì‹œëœ ì»¬ëŸ¼ì— ëŒ€í•œ ì¡°ê±´ì„ ë§Œë“¤ ìˆ˜ ìžˆëŠ” êµ¬ë¬¸
--- ë¶€ì„œë²ˆí˜¸ê°€ 10, 20, 30ì— ëŒ€í•œ í‰ê·  ê¸‰ì—¬ ì¡°íšŒ
+-- 1-6. HAVING: GROUP BY ¿¡ ¸í½ÃµÈ ÄÃ·³¿¡ ´ëÇÑ Á¶°ÇÀ» ¸¸µé ¼ö ÀÖ´Â ±¸¹®
+-- ºÎ¼­¹øÈ£°¡ 10, 20, 30¿¡ ´ëÇÑ Æò±Õ ±Þ¿© Á¶È¸
 SELECT DNO
 	 , AVG(SAL)
 	FROM EMP 
@@ -207,8 +207,8 @@ SELECT DNO
 	WHERE DNO IN ('10', '20', '30')
 	GROUP BY DNO;
 
--- AND/OR ì—¬ëŸ¬ê°œ ì¡°ê±´ì„ ìž‘ì„±í•  ìˆ˜ ìžˆê³ 
--- HAVING ì ˆì—ëŠ” í†µê³„í•¨ìˆ˜ì— ëŒ€í•œ ì¡°ê±´ë„ ìž‘ì„±í•  ìˆ˜ ìžˆë‹¤.
+-- AND/OR ¿©·¯°³ Á¶°ÇÀ» ÀÛ¼ºÇÒ ¼ö ÀÖ°í
+-- HAVING Àý¿¡´Â Åë°èÇÔ¼ö¿¡ ´ëÇÑ Á¶°Çµµ ÀÛ¼ºÇÒ ¼ö ÀÖ´Ù.
 SELECT DNO
 	 , AVG(SAL)
 	FROM EMP 
@@ -216,14 +216,14 @@ SELECT DNO
 	HAVING DNO IN ('10', '20', '30')
 	   AND AVG(SAL) >= 3000;
 	  
--- HAVING ì ˆì—ëŠ” GROUP BYì— ëª…ì‹œë˜ì§€ ì•Šì•˜ê±°ë‚˜ í†µê³„í•¨ìˆ˜ê°€ ì•„ë‹Œ ì¡°ê±´ì€ ìž‘ì„±í•  ìˆ˜ ì—†ë‹¤
+-- HAVING Àý¿¡´Â GROUP BY¿¡ ¸í½ÃµÇÁö ¾Ê¾Ò°Å³ª Åë°èÇÔ¼ö°¡ ¾Æ´Ñ Á¶°ÇÀº ÀÛ¼ºÇÒ ¼ö ¾ø´Ù
 SELECT DNO
 	 , AVG(SAL)
 	FROM EMP 
 	GROUP BY DNO 
 	HAVING COMM >= 300;
 
--- WHERE ì ˆì—ì„œëŠ” í†µê³„í•¨ìˆ˜ì— ëŒ€í•œ ì¡°ê±´ì„ ìž‘ì„±í•  ìˆ˜ ì—†ë‹¤.
+-- WHERE Àý¿¡¼­´Â Åë°èÇÔ¼ö¿¡ ´ëÇÑ Á¶°ÇÀ» ÀÛ¼ºÇÒ ¼ö ¾ø´Ù.
 SELECT DNO
 	 , AVG(SAL)
 	FROM EMP
@@ -233,7 +233,7 @@ SELECT DNO
 					  )
 	GROUP BY DNO;
 
--- í†µê³„í•¨ìˆ˜ì— ëŒ€í•œ ì¡°ê±´ì„ WHERE ì ˆì—ì„œ ì‚¬ìš©í•˜ë ¤ë©´ í†µê³„í•¨ìˆ˜ë¥¼ í¬í•¨í•œ ì¿¼ë¦¬ë¥¼ ì„œë¸Œì¿¼ë¦¬ë¡œ ë¬¶ëŠ”ë‹¤
+-- Åë°èÇÔ¼ö¿¡ ´ëÇÑ Á¶°ÇÀ» WHERE Àý¿¡¼­ »ç¿ëÇÏ·Á¸é Åë°èÇÔ¼ö¸¦ Æ÷ÇÔÇÑ Äõ¸®¸¦ ¼­ºêÄõ¸®·Î ¹­´Â´Ù
 SELECT A.*
 	FROM (
 		SELECT DNO
@@ -246,7 +246,7 @@ SELECT A.*
 						  	  FROM EMP
 					   );
 
--- ìž„ìš©ë…„ë„ê°€ 2000ë…„ ì´ì „ì´ê³  ìž„ìš©ë…„ë„ê°€ ë™ì¼í•œ êµìˆ˜ì˜ ìˆ˜ ì¡°íšŒ
+-- ÀÓ¿ë³âµµ°¡ 2000³â ÀÌÀüÀÌ°í ÀÓ¿ë³âµµ°¡ µ¿ÀÏÇÑ ±³¼öÀÇ ¼ö Á¶È¸
 SELECT TRUNC(HIREDATE, 'YYYY')
 	 , COUNT(*)
 	FROM PROFESSOR

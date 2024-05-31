@@ -1,11 +1,11 @@
--- 1. CONSTRAINT(ì œì•½ì¡°ê±´): ì œì•½ì¡°ê±´ì€ ë°ì´í„°ì˜ ì •í™•ì„±ê³¼ ë¬´ê²°ì„±ì„ ë³´ìž¥í•´ì£¼ëŠ” ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ê·œì¹™
--- 						 ì œì•½ì¡°ê±´ì—ëŠ” PK, FK, UK, NOT NULL, DEFAULT, CHECK ë“±ì´ ì¡´ìž¬í•œë‹¤.
--- 1-1. PK(PRIMARY KEY): í…Œì´ë¸”ì— ì‹ë³„ìž ì—­í• ì„ í•˜ëŠ” ì»¬ëŸ¼ì„ ì§€ì •
---					     PKë¡œ ì§€ì •ëœ ì»¬ëŸ¼ì˜ ë°ì´í„°ëŠ” ìœ ì¼í•´ì•¼ í•˜ë©°(UK), ìƒ‰ì¸ ì—­í• ë„ í•˜ë©°(INDEX),
---						 NULLê°’ì´ ì €ìž¥ë  ìˆ˜ ì—†ë‹¤(NOT NULL).
--- ë‹¨ì¼ ì»¬ëŸ¼ PKì¸ í…Œì´ë¸” ìƒì„±
+-- 1. CONSTRAINT(Á¦¾àÁ¶°Ç): Á¦¾àÁ¶°ÇÀº µ¥ÀÌÅÍÀÇ Á¤È®¼º°ú ¹«°á¼ºÀ» º¸ÀåÇØÁÖ´Â µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ±ÔÄ¢
+-- 						 Á¦¾àÁ¶°Ç¿¡´Â PK, FK, UK, NOT NULL, DEFAULT, CHECK µîÀÌ Á¸ÀçÇÑ´Ù.
+-- 1-1. PK(PRIMARY KEY): Å×ÀÌºí¿¡ ½Äº°ÀÚ ¿ªÇÒÀ» ÇÏ´Â ÄÃ·³À» ÁöÁ¤
+--					     PK·Î ÁöÁ¤µÈ ÄÃ·³ÀÇ µ¥ÀÌÅÍ´Â À¯ÀÏÇØ¾ß ÇÏ¸ç(UK), »öÀÎ ¿ªÇÒµµ ÇÏ¸ç(INDEX),
+--						 NULL°ªÀÌ ÀúÀåµÉ ¼ö ¾ø´Ù(NOT NULL).
+-- ´ÜÀÏ ÄÃ·³ PKÀÎ Å×ÀÌºí »ý¼º
 CREATE TABLE EMP_PK1 (
-	-- ì‹œìŠ¤í…œì—ì„œ ì œì•½ì¡°ê±´ëª…ì„ ìžë™ìœ¼ë¡œ ìƒì„±
+	-- ½Ã½ºÅÛ¿¡¼­ Á¦¾àÁ¶°Ç¸íÀ» ÀÚµ¿À¸·Î »ý¼º
 	ENO NUMBER(4) PRIMARY KEY,
 	ENAME VARCHAR2(20),
 	JOB VARCHAR2(10),
@@ -13,25 +13,25 @@ CREATE TABLE EMP_PK1 (
 	DNO NUMBER(2)
 );
 
--- PKë¡œ ì„¤ì •ëœ ì»¬ëŸ¼ì˜ ë°ì´í„°ëŠ” ìœ ì¼í•œ ê°’(UK)ì„ ê°€ì ¸ì•¼ í•˜ê¸° ë•Œë¬¸ì— ì¤‘ë³µëœ ë°ì´í„°ë¥¼ ì €ìž¥í•  ìˆ˜ ì—†ë‹¤.
+-- PK·Î ¼³Á¤µÈ ÄÃ·³ÀÇ µ¥ÀÌÅÍ´Â À¯ÀÏÇÑ °ª(UK)À» °¡Á®¾ß ÇÏ±â ¶§¹®¿¡ Áßº¹µÈ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¼ö ¾ø´Ù.
 INSERT INTO EMP_PK1
-VALUES (1, 'ê³ ê¸°ì²œ', 'ê°œë°œ', SYSDATE, 1);
+VALUES (1, '°í±âÃµ', '°³¹ß', SYSDATE, 1);
 COMMIT;
 
 INSERT INTO EMP_PK1
-VALUES (1, 'ìž„êº½ì •', 'ë¶„ì„', SYSDATE, 2);
+VALUES (1, 'ÀÓ²©Á¤', 'ºÐ¼®', SYSDATE, 2);
 
--- PKë¡œ ì„¤ì •ëœ ë°ì´í„°ëŠ” NULL ê°’ì„ ê°€ì§ˆ ìˆ˜ ì—†ë‹¤.(NOT NULL)
+-- PK·Î ¼³Á¤µÈ µ¥ÀÌÅÍ´Â NULL °ªÀ» °¡Áú ¼ö ¾ø´Ù.(NOT NULL)
 INSERT INTO EMP_PK1
-VALUES (NULL, 'ìž„êº½ì •', 'ë¶„ì„', SYSDATE, 2);
+VALUES (NULL, 'ÀÓ²©Á¤', 'ºÐ¼®', SYSDATE, 2);
 
 INSERT INTO EMP 
-VALUES (NULL, 'ìž„êº½ì •', 'íšŒê³„', NULL, SYSDATE, 5000, 600, NULL);
+VALUES (NULL, 'ÀÓ²©Á¤', 'È¸°è', NULL, SYSDATE, 5000, 600, NULL);
 INSERT INTO EMP 
-VALUES ('9999', 'ìž„êº½ì •', 'íšŒê³„', NULL, SYSDATE, 5000, 600, NULL);
+VALUES ('9999', 'ÀÓ²©Á¤', 'È¸°è', NULL, SYSDATE, 5000, 600, NULL);
 COMMIT;
 
--- ì œì•½ì¡°ê±´ëª…ì„ ë‹¬ì•„ì„œ PK ìƒì„±
+-- Á¦¾àÁ¶°Ç¸íÀ» ´Þ¾Æ¼­ PK »ý¼º
 CREATE TABLE STUDENT_PK1 (
 	SNO NUMBER(6) CONSTRAINT STUDENT_SNO_PK PRIMARY KEY,
 	SNAME VARCHAR2(20),
@@ -39,7 +39,7 @@ CREATE TABLE STUDENT_PK1 (
 	SYEAR NUMBER(1)
 );
 
--- í…Œì´ë¸”ì„ ìƒì„±í•˜ë©´ì„œ ì»¬ëŸ¼ì„ ëª¨ë‘ ì§€ì • í›„ì— PK ì§€ì •
+-- Å×ÀÌºíÀ» »ý¼ºÇÏ¸é¼­ ÄÃ·³À» ¸ðµÎ ÁöÁ¤ ÈÄ¿¡ PK ÁöÁ¤
 CREATE TABLE DEPT_PK1(
 	DNO NUMBER(2),
 	DNAME VARCHAR2(10),
@@ -48,8 +48,8 @@ CREATE TABLE DEPT_PK1(
 	CONSTRAINT DEPT_DNO_PK PRIMARY KEY(DNO)
 );
 
--- ë‹¤ì¤‘ ì»¬ëŸ¼ PK ì§€ì •
--- ëª¨ë“  í…Œì´ë¸”ì—ì„œ PKëŠ” í•œ ë²ˆë§Œ ì§€ì •í•  ìˆ˜ ìžˆë‹¤.
+-- ´ÙÁß ÄÃ·³ PK ÁöÁ¤
+-- ¸ðµç Å×ÀÌºí¿¡¼­ PK´Â ÇÑ ¹ø¸¸ ÁöÁ¤ÇÒ ¼ö ÀÖ´Ù.
 CREATE TABLE PROFESSOR_PK1(
 	PNO NUMBER(4),
 	PNAME VARCHAR2(20),
@@ -59,25 +59,25 @@ CREATE TABLE PROFESSOR_PK1(
 	CONSTRAINT PK_PROFESSOR_PNO_PNAME PRIMARY KEY(PNO, PNAME)
 );
 
--- ë‹¤ì¤‘ ì»¬ëŸ¼ìœ¼ë¡œ PKë¥¼ ì§€ì •í•˜ê²Œ ë˜ë©´ PKë¡œ ì§€ì •ëœ ì»¬ëŸ¼ë“¤ì„ ë°ì´í„° ì…‹ìœ¼ë¡œ ë¬¶ì–´ì„œ PKë¡œ ì¸ì‹í•œë‹¤.
--- PKë¡œ ì§€ì •ëœ ì»¬ëŸ¼ë“¤ì˜ ë°ì´í„° ëª¨ë‘ ì¤‘ë³µë¼ì•¼ ì¤‘ë³µìœ¼ë¡œ ì¸ì‹í•œë‹¤.
+-- ´ÙÁß ÄÃ·³À¸·Î PK¸¦ ÁöÁ¤ÇÏ°Ô µÇ¸é PK·Î ÁöÁ¤µÈ ÄÃ·³µéÀ» µ¥ÀÌÅÍ ¼ÂÀ¸·Î ¹­¾î¼­ PK·Î ÀÎ½ÄÇÑ´Ù.
+-- PK·Î ÁöÁ¤µÈ ÄÃ·³µéÀÇ µ¥ÀÌÅÍ ¸ðµÎ Áßº¹µÅ¾ß Áßº¹À¸·Î ÀÎ½ÄÇÑ´Ù.
 INSERT INTO PROFESSOR_PK1
-VALUES (1, 'ê³ ê¸°ì²œ', 'í™”í•™', 'ì •êµìˆ˜', SYSDATE);
+VALUES (1, '°í±âÃµ', 'È­ÇÐ', 'Á¤±³¼ö', SYSDATE);
 COMMIT;
 
 INSERT INTO PROFESSOR_PK1
-VALUES (1, 'í™ê¸¸ë™', 'ìƒë¬¼', 'ë¶€êµìˆ˜', SYSDATE);
+VALUES (1, 'È«±æµ¿', '»ý¹°', 'ºÎ±³¼ö', SYSDATE);
 COMMIT;
 
 INSERT INTO PROFESSOR_PK1
-VALUES (1, 'ê³ ê¸°ì²œ', 'ë¬¼ë¦¬', 'ë¶€êµìˆ˜', SYSDATE);
+VALUES (1, '°í±âÃµ', '¹°¸®', 'ºÎ±³¼ö', SYSDATE);
 
--- PKë¡œ ì§€ì •ëœ ëª¨ë“  ì»¬ëŸ¼ì— NULL ê°’ì€ í—ˆìš©ë˜ì§€ ì•ŠëŠ”ë‹¤.
+-- PK·Î ÁöÁ¤µÈ ¸ðµç ÄÃ·³¿¡ NULL °ªÀº Çã¿ëµÇÁö ¾Ê´Â´Ù.
 INSERT INTO PROFESSOR_PK1
-VALUES (NULL, 'ê³ ê¸°ì²œ', 'ë¬¼ë¦¬', 'ë¶€êµìˆ˜', SYSDATE);
+VALUES (NULL, '°í±âÃµ', '¹°¸®', 'ºÎ±³¼ö', SYSDATE);
 
 INSERT INTO PROFESSOR_PK1
-VALUES (2, NULL, 'ë¬¼ë¦¬', 'ë¶€êµìˆ˜', SYSDATE);
+VALUES (2, NULL, '¹°¸®', 'ºÎ±³¼ö', SYSDATE);
 
 
 CREATE TABLE BOARD(
@@ -94,24 +94,24 @@ CREATE TABLE BOARD_FILE(
 );
 
 INSERT INTO BOARD
-VALUES(1, 'ê²Œì‹œê¸€ 1');
+VALUES(1, '°Ô½Ã±Û 1');
 
 INSERT INTO BOARD
-VALUES(2, 'ê²Œì‹œê¸€ 2');
+VALUES(2, '°Ô½Ã±Û 2');
 COMMIT;
 
 INSERT INTO BOARD_FILE
-VALUES (1, 1, 'ê²Œì‹œê¸€1 - ì²¨ë¶€íŒŒì¼1');
+VALUES (1, 1, '°Ô½Ã±Û1 - Ã·ºÎÆÄÀÏ1');
 
 INSERT INTO BOARD_FILE
-VALUES (1, 2, 'ê²Œì‹œê¸€1 - ì²¨ë¶€íŒŒì¼2');
+VALUES (1, 2, '°Ô½Ã±Û1 - Ã·ºÎÆÄÀÏ2');
 COMMIT;
 
 INSERT INTO BOARD_FILE
-VALUES (2, 3, 'ê²Œì‹œê¸€2 - ì²¨ë¶€íŒŒì¼1');
+VALUES (2, 3, '°Ô½Ã±Û2 - Ã·ºÎÆÄÀÏ1');
 
 INSERT INTO BOARD_FILE
-VALUES (2, 1, 'ê²Œì‹œê¸€2 - ì²¨ë¶€íŒŒì¼1');
+VALUES (2, 1, '°Ô½Ã±Û2 - Ã·ºÎÆÄÀÏ1');
 COMMIT;
 
 CREATE TABLE BOARD_FILE_MULTIPK(
@@ -122,16 +122,16 @@ CREATE TABLE BOARD_FILE_MULTIPK(
 );
 
 INSERT INTO BOARD_FILE_MULTIPK
-VALUES (1, 1, 'ê²Œì‹œê¸€1 - ì²¨ë¶€íŒŒì¼1');
+VALUES (1, 1, '°Ô½Ã±Û1 - Ã·ºÎÆÄÀÏ1');
 
 INSERT INTO BOARD_FILE_MULTIPK
-VALUES (1, 2, 'ê²Œì‹œê¸€1 - ì²¨ë¶€íŒŒì¼2');
+VALUES (1, 2, '°Ô½Ã±Û1 - Ã·ºÎÆÄÀÏ2');
 COMMIT;
 
 INSERT INTO BOARD_FILE_MULTIPK
-VALUES (2, 1, 'ê²Œì‹œê¸€2 - ì²¨ë¶€íŒŒì¼1');
+VALUES (2, 1, '°Ô½Ã±Û2 - Ã·ºÎÆÄÀÏ1');
 INSERT INTO BOARD_FILE_MULTIPK
-VALUES (2, 2, 'ê²Œì‹œê¸€2 - ì²¨ë¶€íŒŒì¼2');
+VALUES (2, 2, '°Ô½Ã±Û2 - Ã·ºÎÆÄÀÏ2');
 COMMIT;
 
 SELECT *
@@ -140,79 +140,79 @@ SELECT *
 SELECT *
 	FROM BOARD_FILE;
 
--- ê¸°ì¡´ í…Œì´ë¸”ì— PK ì¶”ê°€
--- ê¸°ì¡´ í…Œì´ë¸”ì˜ êµ¬ì¡°ë¥¼ ë³€ê²½í•˜ëŠ” ìž‘ì—…ì´ë¼ ALTER TABLE êµ¬ë¬¸ì„ ì‚¬ìš©í•œë‹¤.
--- PKë¡œ ì§€ì •ë  ì»¬ëŸ¼ì˜ ë°ì´í„°ì— ì¤‘ë³µê°’ì´ë‚˜ NULLê°’ì´ ì—†ì–´ì•¼ ëœë‹¤.
+-- ±âÁ¸ Å×ÀÌºí¿¡ PK Ãß°¡
+-- ±âÁ¸ Å×ÀÌºíÀÇ ±¸Á¶¸¦ º¯°æÇÏ´Â ÀÛ¾÷ÀÌ¶ó ALTER TABLE ±¸¹®À» »ç¿ëÇÑ´Ù.
+-- PK·Î ÁöÁ¤µÉ ÄÃ·³ÀÇ µ¥ÀÌÅÍ¿¡ Áßº¹°ªÀÌ³ª NULL°ªÀÌ ¾ø¾î¾ß µÈ´Ù.
 ALTER TABLE PROFESSOR 
 	ADD CONSTRAINT PK_PROFESSOR_PNO PRIMARY KEY(PNO);
 
--- ê¸°ì¡´ í…Œì´ë¸”ì— ë‹¤ì¤‘ì»¬ëŸ¼ PK ì¶”ê°€
+-- ±âÁ¸ Å×ÀÌºí¿¡ ´ÙÁßÄÃ·³ PK Ãß°¡
 ALTER TABLE SCORE 
 	ADD CONSTRAINT PK_SCORE_SNO_CNO PRIMARY KEY(SNO, CNO);
 
--- PK ì‚­ì œ
--- ALTER TABLE êµ¬ë¬¸ì„ ì´ìš©
--- ì œì•½ì¡°ê±´ëª…ì„ ì´ìš©í•œ ì‚­ì œ
+-- PK »èÁ¦
+-- ALTER TABLE ±¸¹®À» ÀÌ¿ë
+-- Á¦¾àÁ¶°Ç¸íÀ» ÀÌ¿ëÇÑ »èÁ¦
 ALTER TABLE SCORE
 	DROP CONSTRAINT PK_SCORE_SNO_CNO;
 
--- ì œì•½ì¡°ê±´ëª… ì—†ì´ ì‚­ì œ
+-- Á¦¾àÁ¶°Ç¸í ¾øÀÌ »èÁ¦
 ALTER TABLE PROFESSOR 
 	DROP PRIMARY KEY;
 
--- 1-2. FOREIGN KEY(ì™¸ëž˜í‚¤, ì°¸ì¡°í‚¤): ë‹¤ë¥¸ í…Œì´ë¸”ì˜ PKë‚˜ UKë¡œ ì„¤ì •ëœ ì»¬ëŸ¼ì„ ì°¸ì¡°í•˜ì—¬ ì œì•½ì¡°ê±´ì„ ìƒì„±
---				 				ì°¸ì¡°í•œ ì»¬ëŸ¼ì— ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ë§Œ ì €ìž¥í•  ìˆ˜ ìžˆëŠ” ì œì•½ì¡°ê±´ì´ ìƒì„±ëœë‹¤.
---								í…Œì´ë¸”ê°„ì˜ ê´€ê³„ë¥¼ ë§ºì–´ì£¼ëŠ” ì œì•½ì¡°ê±´
---								ì°¸ì¡°í•˜ëŠ” í…Œì´ë¸”ì´ ë¶€ëª¨ í…Œì´ë¸”ì´ ë˜ê³  ì°¸ì¡°í•´ì˜¤ëŠ” í…Œì´ë¸”ì´ ìžì‹ í…Œì´ë¸”ì´ ë¼ì„œ
---							    í…Œì´ë¸”ê°„ì˜ ì¢…ì†ê´€ê³„ë¥¼ í˜•ì„±í•œë‹¤. ë¶€ëª¨í…Œì´ë¸”ì— ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ë§Œ ì €ìž¥ê°€ëŠ¥
--- 							    ê´€ê³„ì—ëŠ” 1:1, 1:N, N:1, N:N ë“± ë‹¤ì–‘í•œ í˜•íƒœê°€ ì¡´ìž¬í•œë‹¤.
--- DEPT_PK1 í…Œì´ë¸”ì˜ PKë¡œ ì„¤ì •ëœ DNOì„ ì°¸ì¡°í•œ FKë¥¼ ê°–ëŠ” EMP_FK1 í…Œì´ë¸” ìƒì„±
+-- 1-2. FOREIGN KEY(¿Ü·¡Å°, ÂüÁ¶Å°): ´Ù¸¥ Å×ÀÌºíÀÇ PK³ª UK·Î ¼³Á¤µÈ ÄÃ·³À» ÂüÁ¶ÇÏ¿© Á¦¾àÁ¶°ÇÀ» »ý¼º
+--				 				ÂüÁ¶ÇÑ ÄÃ·³¿¡ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¸¸ ÀúÀåÇÒ ¼ö ÀÖ´Â Á¦¾àÁ¶°ÇÀÌ »ý¼ºµÈ´Ù.
+--								Å×ÀÌºí°£ÀÇ °ü°è¸¦ ¸Î¾îÁÖ´Â Á¦¾àÁ¶°Ç
+--								ÂüÁ¶ÇÏ´Â Å×ÀÌºíÀÌ ºÎ¸ð Å×ÀÌºíÀÌ µÇ°í ÂüÁ¶ÇØ¿À´Â Å×ÀÌºíÀÌ ÀÚ½Ä Å×ÀÌºíÀÌ µÅ¼­
+--							    Å×ÀÌºí°£ÀÇ Á¾¼Ó°ü°è¸¦ Çü¼ºÇÑ´Ù. ºÎ¸ðÅ×ÀÌºí¿¡ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¸¸ ÀúÀå°¡´É
+-- 							    °ü°è¿¡´Â 1:1, 1:N, N:1, N:N µî ´Ù¾çÇÑ ÇüÅÂ°¡ Á¸ÀçÇÑ´Ù.
+-- DEPT_PK1 Å×ÀÌºíÀÇ PK·Î ¼³Á¤µÈ DNOÀ» ÂüÁ¶ÇÑ FK¸¦ °®´Â EMP_FK1 Å×ÀÌºí »ý¼º
 CREATE TABLE EMP_FK1 (
 	ENO NUMBER(4),
 	ENAME VARCHAR2(20),
-	-- FKë¡œ ì§€ì •ë  ì»¬ëŸ¼ì˜ ë°ì´í„° íƒ€ìž…ì€ ì°¸ì¡°í•˜ëŠ” ì»¬ëŸ¼ì˜ ë°ì´í„° íƒ€ìž…ê³¼ ì¼ì¹˜í•´ì•¼ í•œë‹¤.
-	-- DEPT_PK1í…Œì´ë¸”ì— DNOì»¬ëŸ¼ì— ì¡´ìž¬í•œ ë°ì´í„°ë“¤ë§Œ DNO ì»¬ëŸ¼ì— ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
+	-- FK·Î ÁöÁ¤µÉ ÄÃ·³ÀÇ µ¥ÀÌÅÍ Å¸ÀÔÀº ÂüÁ¶ÇÏ´Â ÄÃ·³ÀÇ µ¥ÀÌÅÍ Å¸ÀÔ°ú ÀÏÄ¡ÇØ¾ß ÇÑ´Ù.
+	-- DEPT_PK1Å×ÀÌºí¿¡ DNOÄÃ·³¿¡ Á¸ÀçÇÑ µ¥ÀÌÅÍµé¸¸ DNO ÄÃ·³¿¡ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
 	DNO NUMBER(4) CONSTRAINT FK_EMP_DNO
 				  REFERENCES DEPT_PK1(DNO)
 );
 
 INSERT INTO DEPT_PK1
-VALUES (1, 'ê°œë°œ', 'ì„œìš¸', 1);
+VALUES (1, '°³¹ß', '¼­¿ï', 1);
 INSERT INTO DEPT_PK1
-VALUES (2, 'ë¶„ì„', 'ì„œìš¸', 2);
+VALUES (2, 'ºÐ¼®', '¼­¿ï', 2);
 COMMIT;
 
 SELECT *
 	FROM DEPT_PK1;
 
 INSERT INTO EMP_FK1
-VALUES (1, 'í™ê¸¸ë™', 1);
+VALUES (1, 'È«±æµ¿', 1);
 INSERT INTO EMP_FK1
-VALUES (2, 'ìž„êº½ì •', 2);
+VALUES (2, 'ÀÓ²©Á¤', 2);
 COMMIT;
 
--- ë¶€ëª¨í…Œì´ë¸”ì¸ DEPT_PK1ì— ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” DNO 3ì€
--- ìžì‹í…Œì´ë¸”ì¸ EMP_FK1ì˜ DNOë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤.
+-- ºÎ¸ðÅ×ÀÌºíÀÎ DEPT_PK1¿¡ Á¸ÀçÇÏÁö ¾Ê´Â DNO 3Àº
+-- ÀÚ½ÄÅ×ÀÌºíÀÎ EMP_FK1ÀÇ DNO·Î »ç¿ëÇÒ ¼ö ¾ø´Ù.
 INSERT INTO EMP_FK1
-VALUES (3, 'ìž¥ê¸¸ì‚°', 3);
+VALUES (3, 'Àå±æ»ê', 3);
 
--- ì‹ë³„ìž ì—­í• ì€ í•˜ì§€ ì•Šì•„ì„œ ì¤‘ë³µëœ ê°’ì„ ì—¬ëŸ¬ê°œ ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
+-- ½Äº°ÀÚ ¿ªÇÒÀº ÇÏÁö ¾Ê¾Æ¼­ Áßº¹µÈ °ªÀ» ¿©·¯°³ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
 INSERT INTO EMP_FK1
-VALUES (3, 'ìž¥ê¸¸ì‚°', 1);
+VALUES (3, 'Àå±æ»ê', 1);
 COMMIT;
 
 SELECT *
 	FROM EMP_FK1;
 
--- FKëŠ” NULLê°’ë„ ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
+-- FK´Â NULL°ªµµ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
 INSERT INTO EMP_FK1
-VALUES (4, 'ê³ ê¸°ì²œ', NULL);
+VALUES (4, '°í±âÃµ', NULL);
 COMMIT;
 
--- FKë¡œ ê´€ê³„ê°€ í˜•ì„±ë˜ë©´ ë¶€ëª¨í…Œì´ë¸”ì—ì„œ ë°ì´í„°ì˜ ìˆ˜ì •ì´ë‚˜ ì‚­ì œê°€ ìžìœ ë¡­ê²Œ ì§„í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤.
--- ìžì‹í…Œì´ë¸”ì—ì„œ ì‚¬ìš©í•˜ê³  ìžˆëŠ” ë¶€ëª¨í…Œì´ë¸”ì˜ ë°ì´í„°ê°€ ì—†ì–´ì•¼ ìˆ˜ì •ì´ë‚˜ ì‚­ì œê°€ ê°€ëŠ¥í•˜ë‹¤.
+-- FK·Î °ü°è°¡ Çü¼ºµÇ¸é ºÎ¸ðÅ×ÀÌºí¿¡¼­ µ¥ÀÌÅÍÀÇ ¼öÁ¤ÀÌ³ª »èÁ¦°¡ ÀÚÀ¯·Ó°Ô ÁøÇàµÇÁö ¾Ê´Â´Ù.
+-- ÀÚ½ÄÅ×ÀÌºí¿¡¼­ »ç¿ëÇÏ°í ÀÖ´Â ºÎ¸ðÅ×ÀÌºíÀÇ µ¥ÀÌÅÍ°¡ ¾ø¾î¾ß ¼öÁ¤ÀÌ³ª »èÁ¦°¡ °¡´ÉÇÏ´Ù.
 INSERT INTO DEPT_PK1
-VALUES (3, 'íšŒê³„', 'ëŒ€ì „', 3);
+VALUES (3, 'È¸°è', '´ëÀü', 3);
 COMMIT;
 
 DELETE FROM DEPT_PK1
@@ -236,10 +236,10 @@ COMMIT;
 SELECT *
 	FROM DEPT_PK1;
 
--- ì»¬ëŸ¼ì„ ëª¨ë‘ ì§€ì •í•˜ê³  FK ìƒì„±
--- CASCADE ì˜µì…˜ ì¶”ê°€í•˜ì—¬ ìƒì„±, ORACLEì—ì„œëŠ” DELETE CASCADE ì˜µì…˜ë§Œ ì¶”ê°€ ê°€ëŠ¥
--- CASCADE ì˜µì…˜ì€ ë¶€ëª¨í…Œì´ë¸” ë°ì´í„°ì˜ ìˆ˜ì •ì´ë‚˜ ì‚­ì œê°€ ì¼ì–´ë‚  ê²½ìš°
--- ìžì‹í…Œì´ë¸”ì˜ ë°ì´í„°ë„ ìˆ˜ì •ì´ë‚˜ ì‚­ì œê°€ ì¼ì–´ë‚˜ëŠ” ì˜µì…˜
+-- ÄÃ·³À» ¸ðµÎ ÁöÁ¤ÇÏ°í FK »ý¼º
+-- CASCADE ¿É¼Ç Ãß°¡ÇÏ¿© »ý¼º, ORACLE¿¡¼­´Â DELETE CASCADE ¿É¼Ç¸¸ Ãß°¡ °¡´É
+-- CASCADE ¿É¼ÇÀº ºÎ¸ðÅ×ÀÌºí µ¥ÀÌÅÍÀÇ ¼öÁ¤ÀÌ³ª »èÁ¦°¡ ÀÏ¾î³¯ °æ¿ì
+-- ÀÚ½ÄÅ×ÀÌºíÀÇ µ¥ÀÌÅÍµµ ¼öÁ¤ÀÌ³ª »èÁ¦°¡ ÀÏ¾î³ª´Â ¿É¼Ç
 CREATE TABLE EMP_FK2(
 	ENO NUMBER(4),
 	ENAME VARCHAR2(20),
@@ -250,11 +250,11 @@ CREATE TABLE EMP_FK2(
 );
 
 INSERT INTO EMP_FK2
-VALUES (1, 'í™ê¸¸ë™', 1);
+VALUES (1, 'È«±æµ¿', 1);
 INSERT INTO EMP_FK2
-VALUES (2, 'ìž„êº½ì •', 2);
+VALUES (2, 'ÀÓ²©Á¤', 2);
 INSERT INTO EMP_FK2
-VALUES (3, 'ìž¥ê¸¸ì‚°', 1);
+VALUES (3, 'Àå±æ»ê', 1);
 COMMIT;
 
 SELECT *
@@ -262,19 +262,19 @@ SELECT *
 
 DROP TABLE EMP_FK1;
 
--- ON DELETE CASCADE ì˜µì…˜ì— ì˜í•´ì„œ ë¶€ëª¨í…Œì´ë¸”ì¸ DEPT_PK1ì˜ ë°ì´í„°ë¥¼ ì‚­ì œí•˜ë©´
--- ì°¸ì¡°í•˜ê³  ìžˆëŠ” ìžì‹í…Œì´ë¸”ì¸ EMP_FK2ì—ì„œë„ ë°ì´í„°ê°€ ì‚­ì œëœë‹¤.
+-- ON DELETE CASCADE ¿É¼Ç¿¡ ÀÇÇØ¼­ ºÎ¸ðÅ×ÀÌºíÀÎ DEPT_PK1ÀÇ µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÏ¸é
+-- ÂüÁ¶ÇÏ°í ÀÖ´Â ÀÚ½ÄÅ×ÀÌºíÀÎ EMP_FK2¿¡¼­µµ µ¥ÀÌÅÍ°¡ »èÁ¦µÈ´Ù.
 DELETE FROM DEPT_PK1
 	WHERE DNO = 1;
 COMMIT;
 
--- FKë©´ì„œ PKì—­í• ì„ í•˜ëŠ” ì»¬ëŸ¼ì„ ê°–ëŠ” í…Œì´ë¸” ìƒì„±
--- COURSEì˜ CNOì„ FKë¡œ ë°›ì•„ì˜¤ë©´ì„œ PKë¡œ ì§€ì •
+-- FK¸é¼­ PK¿ªÇÒÀ» ÇÏ´Â ÄÃ·³À» °®´Â Å×ÀÌºí »ý¼º
+-- COURSEÀÇ CNOÀ» FK·Î ¹Þ¾Æ¿À¸é¼­ PK·Î ÁöÁ¤
 ALTER TABLE COURSE ADD CONSTRAINT PK_SCORE_CNO PRIMARY KEY(CNO);
 
--- 1:1 ê´€ê³„ê°€ í˜•ì„±ëœ FK
--- COURSE í…Œì´ë¸”ì—ë„ CNO ë°ì´í„°ëŠ” ì¤‘ë³µë  ìˆ˜ ì—†ê³ 
--- SCORE_PK1_FK1 í…Œì´ë¸”ì—ë„ CNO ë°ì´í„°ëŠ” ì¤‘ë³µë  ìˆ˜ ì—†ë‹¤.
+-- 1:1 °ü°è°¡ Çü¼ºµÈ FK
+-- COURSE Å×ÀÌºí¿¡µµ CNO µ¥ÀÌÅÍ´Â Áßº¹µÉ ¼ö ¾ø°í
+-- SCORE_PK1_FK1 Å×ÀÌºí¿¡µµ CNO µ¥ÀÌÅÍ´Â Áßº¹µÉ ¼ö ¾ø´Ù.
 CREATE TABLE SCORE_PK1_FK1(
 	CNO VARCHAR2(8),
 	SNO VARCHAR2(8),
@@ -284,7 +284,7 @@ CREATE TABLE SCORE_PK1_FK1(
 		REFERENCES COURSE(CNO)
 );
 
--- FKë©´ì„œ ì‹ë³„ìž ì—­í• ì„ í•˜ê¸° ë•Œë¬¸ì— ë°ì´í„°ì˜ ì¤‘ë³µì´ í—ˆìš©ë˜ì§€ ì•Šê³  NULL ê°’ë„ ì €ìž¥í•  ìˆ˜ ì—†ë‹¤.
+-- FK¸é¼­ ½Äº°ÀÚ ¿ªÇÒÀ» ÇÏ±â ¶§¹®¿¡ µ¥ÀÌÅÍÀÇ Áßº¹ÀÌ Çã¿ëµÇÁö ¾Ê°í NULL °ªµµ ÀúÀåÇÒ ¼ö ¾ø´Ù.
 INSERT INTO SCORE_PK1_FK1 
 VALUES('1214', '111111', 100);
 COMMIT;
@@ -295,11 +295,11 @@ VALUES('1214', '222222', 95);
 INSERT INTO SCORE_PK1_FK1
 VALUES(NULL, '333333', 80);
 
--- PKëŠ” í…Œì´ë¸” í•œ ë²ˆë§Œ ì§€ì •ì„ í•  ìˆ˜ ìžˆì§€ë§Œ
--- FKëŠ” ì—¬ëŸ¬ ë²ˆ ì§€ì •í•  ìˆ˜ ìžˆë‹¤.
--- STUDENT í…Œì´ë¸”ì˜ SNOë¥¼ ì°¸ì¡°í•˜ê³ , COURSEì˜ CNOë¥¼ ì°¸ì¡°í•´ì„œ FKë¡œ ì„¤ì •í•˜ê³ 
--- SNO, CNOì˜ ë¬¶ìŒì„ PKë¡œ ì§€ì •í•˜ëŠ” í…Œì´ë¸” ST_SCORE_PK_FKë¥¼ ìƒì„±í•˜ì„¸ìš”.(SNO, CNOë§Œ ì»¬ëŸ¼ìœ¼ë¡œ ìƒì„±)
-ALTER TABLE STUDENT ADD CONSTRAINT PK_STUDENT_SNO PRIMARY KEY(SNO); -- PKë¡œ ì„¤ì •í•˜ë ¤ë©´ ë¬´ì¡°ê±´ ì¤‘ë³µê°’ì´ ì—†ì–´ì•¼ í•œë‹¤, FKëŠ” PKë‚˜ UKê°€ ì„¤ì •ë˜ì–´ì•¼ë§Œ ì„¤ì •í•  ìˆ˜ ìžˆë‹¤.
+-- PK´Â Å×ÀÌºí ÇÑ ¹ø¸¸ ÁöÁ¤À» ÇÒ ¼ö ÀÖÁö¸¸
+-- FK´Â ¿©·¯ ¹ø ÁöÁ¤ÇÒ ¼ö ÀÖ´Ù.
+-- STUDENT Å×ÀÌºíÀÇ SNO¸¦ ÂüÁ¶ÇÏ°í, COURSEÀÇ CNO¸¦ ÂüÁ¶ÇØ¼­ FK·Î ¼³Á¤ÇÏ°í
+-- SNO, CNOÀÇ ¹­À½À» PK·Î ÁöÁ¤ÇÏ´Â Å×ÀÌºí ST_SCORE_PK_FK¸¦ »ý¼ºÇÏ¼¼¿ä.(SNO, CNO¸¸ ÄÃ·³À¸·Î »ý¼º)
+ALTER TABLE STUDENT ADD CONSTRAINT PK_STUDENT_SNO PRIMARY KEY(SNO); -- PK·Î ¼³Á¤ÇÏ·Á¸é ¹«Á¶°Ç Áßº¹°ªÀÌ ¾ø¾î¾ß ÇÑ´Ù, FK´Â PK³ª UK°¡ ¼³Á¤µÇ¾î¾ß¸¸ ¼³Á¤ÇÒ ¼ö ÀÖ´Ù.
 
 CREATE TABLE ST_SCORE_PK_FK(
 	SNO VARCHAR2(8),
@@ -311,8 +311,8 @@ CREATE TABLE ST_SCORE_PK_FK(
 		REFERENCES COURSE(CNO)
 );
 
--- STUDENT í…Œì´ë¸”ì— SNOë¡œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ì™€ COURSE í…Œì´ë¸”ì— CNOë¡œ ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ë§Œ ì €ìž¥í•  ìˆ˜ ìžˆê³ 
--- ë°ì´í„°ì˜ ë¬¶ìŒì´ ì¤‘ë³µì´ë©´ ì•ˆë˜ê³  NULL ê°’ì„ í—ˆìš©í•˜ì§€ ì•ŠëŠ” í…Œì´ë¸”
+-- STUDENT Å×ÀÌºí¿¡ SNO·Î Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¿Í COURSE Å×ÀÌºí¿¡ CNO·Î Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ¸¸ ÀúÀåÇÒ ¼ö ÀÖ°í
+-- µ¥ÀÌÅÍÀÇ ¹­À½ÀÌ Áßº¹ÀÌ¸é ¾ÈµÇ°í NULL °ªÀ» Çã¿ëÇÏÁö ¾Ê´Â Å×ÀÌºí
 INSERT INTO ST_SCORE_PK_FK
 VALUES('913901', '1211');
 INSERT INTO ST_SCORE_PK_FK
@@ -331,8 +331,8 @@ VALUES('913901', '9123');
 INSERT INTO ST_SCORE_PK_FK
 VALUES('123456', '1211');
 
--- 1ëŒ€ 1 ê´€ê³„
--- ë¶€ëª¨í…Œì´ë¸”ì— ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ê°€ ìžì‹í…Œì´ë¸”ì—ë„ í•˜ë‚˜ë§Œ ì¡´ìž¬í•  ìˆ˜ ìžˆëŠ” êµ¬ì¡°
+-- 1´ë 1 °ü°è
+-- ºÎ¸ðÅ×ÀÌºí¿¡ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ°¡ ÀÚ½ÄÅ×ÀÌºí¿¡µµ ÇÏ³ª¸¸ Á¸ÀçÇÒ ¼ö ÀÖ´Â ±¸Á¶
 CREATE TABLE MEMBER(
     ID NUMBER(2),
     USERNAME VARCHAR2(100),
@@ -371,7 +371,7 @@ SELECT M.ID
        ON M.ID = MD.ID
      WHERE M.ID = 1;
 
--- 1ëŒ€ Nê´€ê³„, NëŒ€ 1ê´€ê³„: ë¶€ëª¨í…Œì´ë¸”ì— ì¡´ìž¬í•˜ëŠ” ë°ì´í„°ê°€ ìžì‹í…Œì´ë¸”ì— ì—¬ëŸ¬ê°œ ì¡´ìž¬í•˜ëŠ” êµ¬ì¡°
+-- 1´ë N°ü°è, N´ë 1°ü°è: ºÎ¸ðÅ×ÀÌºí¿¡ Á¸ÀçÇÏ´Â µ¥ÀÌÅÍ°¡ ÀÚ½ÄÅ×ÀÌºí¿¡ ¿©·¯°³ Á¸ÀçÇÏ´Â ±¸Á¶
  DROP TABLE BOARD;
  
  CREATE TABLE BOARD(
@@ -395,11 +395,11 @@ VALUES (1, 'AAAA', 'AAAA');
 COMMIT;
 
 INSERT INTO BOARD_FILE_FK
-VALUES (1, 1, 'ê²Œì‹œê¸€1 - ì²¨ë¶€íŒŒì¼1');
+VALUES (1, 1, '°Ô½Ã±Û1 - Ã·ºÎÆÄÀÏ1');
 INSERT INTO BOARD_FILE_FK
-VALUES (1, 2, 'ê²Œì‹œê¸€1 - ì²¨ë¶€íŒŒì¼2');
+VALUES (1, 2, '°Ô½Ã±Û1 - Ã·ºÎÆÄÀÏ2');
 INSERT INTO BOARD_FILE_FK
-VALUES (1, 3, 'ê²Œì‹œê¸€1 - ì²¨ë¶€íŒŒì¼3');
+VALUES (1, 3, '°Ô½Ã±Û1 - Ã·ºÎÆÄÀÏ3');
 COMMIT;
 
 SELECT B.BOARD_ID
@@ -411,8 +411,8 @@ SELECT B.BOARD_ID
      JOIN BOARD_FILE_FK BF
        ON B.BOARD_ID = BF.BOARD_ID;
    
--- NëŒ€ Nê´€ê³„(ë‹¤ëŒ€ë‹¤ ê´€ê³„): ë‘ ê°œì˜ í…Œì´ë¸”ì˜ ë°ì´í„°ê°€ ì—¬ëŸ¬ê°œê°€ ì¡´ìž¬í•˜ëŠ” NëŒ€ Nê´€ê³„ê°€ ë§¤í•‘ëœ êµ¬ì¡°
--- ì¤‘ê°„ì— ë§¤í•‘ëœ í…Œì´ë¸”ì´ í•„ìš”í•˜ë‹¤
+-- N´ë N°ü°è(´Ù´ë´Ù °ü°è): µÎ °³ÀÇ Å×ÀÌºíÀÇ µ¥ÀÌÅÍ°¡ ¿©·¯°³°¡ Á¸ÀçÇÏ´Â N´ë N°ü°è°¡ ¸ÅÇÎµÈ ±¸Á¶
+-- Áß°£¿¡ ¸ÅÇÎµÈ Å×ÀÌºíÀÌ ÇÊ¿äÇÏ´Ù
 CREATE TABLE LECTURE(
     LECTURE_ID NUMBER(9),
     LECTURE_NAME VARCHAR2(30),
@@ -425,7 +425,7 @@ CREATE TABLE STUD(
     CONSTRAINT PK_STUD_STUDENT_ID PRIMARY KEY(STUDENT_ID)
 );
 
--- LECTUREí…Œì´ë¸”ê³¼ STUDí…Œì´ë¸”ì´ NëŒ€ Nê´€ê³„ë¡œ ë§¤í•‘ëœ í…Œì´ë¸”
+-- LECTUREÅ×ÀÌºí°ú STUDÅ×ÀÌºíÀÌ N´ë N°ü°è·Î ¸ÅÇÎµÈ Å×ÀÌºí
 CREATE TABLE LECTURE_STUDENT(
     LECTURE_ID NUMBER(9),
     STUDENT_ID NUMBER(9),
@@ -437,18 +437,18 @@ CREATE TABLE LECTURE_STUDENT(
 );
 
 INSERT INTO LECTURE
-VALUES(1, 'ìžë°”');
+VALUES(1, 'ÀÚ¹Ù');
 INSERT INTO LECTURE
-VALUES(2, 'ì˜¤ë¼í´');
+VALUES(2, '¿À¶óÅ¬');
 COMMIT;
 
 
 INSERT INTO STUD
-VALUES(1, 'ê³ ê¸°ì²œ');
+VALUES(1, '°í±âÃµ');
 INSERT INTO STUD
-VALUES(2, 'í™ê¸¸ë™');
+VALUES(2, 'È«±æµ¿');
 INSERT INTO STUD
-VALUES(3, 'ìž¥ê¸¸ì‚°');
+VALUES(3, 'Àå±æ»ê');
 COMMIT;
 
 INSERT INTO LECTURE_STUDENT
@@ -472,26 +472,26 @@ SELECT LS.LECTURE_ID
      JOIN STUD S
       ON LS.STUDENT_ID = S.STUDENT_ID;
 
--- 1-3. UNIQUE KEY(UK): ì¤‘ë³µê°’ì„ í—ˆìš©í•˜ì§€ ì•ŠëŠ” ì œì•½ì¡°ê±´(ì—¬ëŸ¬ê°œ ì§€ì • ê°€ëŠ¥)
---                      PKê°€ ì¤‘ë³µê°’ ë¶ˆê°€, INDEX, NOT NULL ì œì•½ì¡°ê±´ì„ ê°€ì§€ê³  ìžˆëŠ” ë°˜ë©´
---                      UKëŠ” ì¤‘ë³µê°’ ì €ìž¥ë§Œ ë¶ˆê°€ë§Œ ê°€ì§€ê³  ìžˆëŠ” ì œì•½ ì¡°ê±´ì´ë‹¤. ê·¸ëž˜ì„œ NULL ê°’ì´ ì €ìž¥ëœë‹¤.
+-- 1-3. UNIQUE KEY(UK): Áßº¹°ªÀ» Çã¿ëÇÏÁö ¾Ê´Â Á¦¾àÁ¶°Ç(¿©·¯°³ ÁöÁ¤ °¡´É)
+--                      PK°¡ Áßº¹°ª ºÒ°¡, INDEX, NOT NULL Á¦¾àÁ¶°ÇÀ» °¡Áö°í ÀÖ´Â ¹Ý¸é
+--                      UK´Â Áßº¹°ª ÀúÀå¸¸ ºÒ°¡¸¸ °¡Áö°í ÀÖ´Â Á¦¾à Á¶°ÇÀÌ´Ù. ±×·¡¼­ NULL °ªÀÌ ÀúÀåµÈ´Ù.
 CREATE TABLE EMP_UK(
     ENO NUMBER(4) CONSTRAINT PK_EMP_ENO PRIMARY KEY,
     ENAME VARCHAR2(20) CONSTRAINT UK_EMP_UK_ENAME UNIQUE
 );
 
--- UKëŠ” ì¤‘ë³µëœ ê°’ë§Œ ì €ìž¥ì„ ë°©ì§€í•˜ëŠ” ì œì•½ì¡°ê±´
+-- UK´Â Áßº¹µÈ °ª¸¸ ÀúÀåÀ» ¹æÁöÇÏ´Â Á¦¾àÁ¶°Ç
 INSERT INTO EMP_UK 
-VALUES (1, 'ê³ ê¸°ì²œ');
+VALUES (1, '°í±âÃµ');
 COMMIT;
 INSERT INTO EMP_UK 
-VALUES (2, 'ê³ ê¸°ì²œ');
+VALUES (2, '°í±âÃµ');
 
 INSERT INTO EMP_UK 
-VALUES (2, 'ê³ ê¸°ì²œB');
+VALUES (2, '°í±âÃµB');
 COMMIT;
 
--- UKë¡œ ì§€ì •ëœ ì»¬ëŸ¼ì—ëŠ” NULLê°’ì´ ì €ìž¥ë˜ê³  NULLê°’ì€ ì¤‘ë³µë„ í—ˆìš©ëœë‹¤.
+-- UK·Î ÁöÁ¤µÈ ÄÃ·³¿¡´Â NULL°ªÀÌ ÀúÀåµÇ°í NULL°ªÀº Áßº¹µµ Çã¿ëµÈ´Ù.
 INSERT INTO EMP_UK
 VALUES (3, NULL);
 INSERT INTO EMP_UK
@@ -501,7 +501,7 @@ COMMIT;
 SELECT *
     FROM EMP_UK;
 
--- ì»®ëŸ¼ì„ ëª¨ë‘ ì§€ì •í•˜ê³  UK ì§€ì •
+-- °”·³À» ¸ðµÎ ÁöÁ¤ÇÏ°í UK ÁöÁ¤
 CREATE TABLE DEPT_UK(
     DNO NUMBER(4),
     DNAME VARCHAR2(20),
@@ -509,17 +509,17 @@ CREATE TABLE DEPT_UK(
     CONSTRAINT UK_DEPT_UK_DNAME UNIQUE(DNAME)
 );
 
--- ê¸°ì¡´ í…Œì´ë¸”ì— UK ì¶”ê°€
+-- ±âÁ¸ Å×ÀÌºí¿¡ UK Ãß°¡
 ALTER TABLE PROFESSOR 
     ADD CONSTRAINT UK_PROFESSOR_PNO UNIQUE(PNO);
 
--- UK ì‚­ì œ
--- ì œì•½ì¡°ê±´ ëª…ìœ¼ë¡œë§Œ ì‚­ì œ ê°€ëŠ¥ížˆ
+-- UK »èÁ¦
+-- Á¦¾àÁ¶°Ç ¸íÀ¸·Î¸¸ »èÁ¦ °¡´ÉÈ÷
 ALTER TABLE DEPT_UK 
     DROP CONSTRAINT UK_DEPT_UK_DNAME;
 
--- 1-4. CHECK: ì»¬ëŸ¼ì— ì €ìž¥ë˜ëŠ” ë°ì´í„°ì— ì¡°ê±´ì„ ë‹¬ì•„ì£¼ëŠ” ì œì•½ì¡°ê±´
---             CHECKê°€ ì§€ì •ë˜ì–´ ìžˆëŠ” ì»¬ëŸ¼ì˜ ë°ì´í„°ëŠ” CHECKì— ì§€ì •ëœ ì¡°ê±´ì— ë¶€í•©í•˜ëŠ” ë°ì´í„°ë§Œ ì €ìž¥ë  ìˆ˜ ìžˆë‹¤.
+-- 1-4. CHECK: ÄÃ·³¿¡ ÀúÀåµÇ´Â µ¥ÀÌÅÍ¿¡ Á¶°ÇÀ» ´Þ¾ÆÁÖ´Â Á¦¾àÁ¶°Ç
+--             CHECK°¡ ÁöÁ¤µÇ¾î ÀÖ´Â ÄÃ·³ÀÇ µ¥ÀÌÅÍ´Â CHECK¿¡ ÁöÁ¤µÈ Á¶°Ç¿¡ ºÎÇÕÇÏ´Â µ¥ÀÌÅÍ¸¸ ÀúÀåµÉ ¼ö ÀÖ´Ù.
 CREATE TABLE EMP_CHK(
     ENO NUMBER(4) PRIMARY KEY,
     ENAME VARCHAR(20) UNIQUE,
@@ -528,71 +528,71 @@ CREATE TABLE EMP_CHK(
     CONSTRAINT CHK_EMP_CHK_COMM CHECK(COMM BETWEEN 100 AND 1000)
 );
 
--- CHECK ì¡°ê±´ì— ë§žëŠ” ë°ì´í„° ì €ìž¥
+-- CHECK Á¶°Ç¿¡ ¸Â´Â µ¥ÀÌÅÍ ÀúÀå
 INSERT INTO EMP_CHK
-VALUES (1, 'í™ê¸¸ë™', 3000, 300);
+VALUES (1, 'È«±æµ¿', 3000, 300);
 INSERT INTO EMP_CHK
-VALUES (2, 'ê³ ê¸°ì²œ', 3100, 150);
+VALUES (2, '°í±âÃµ', 3100, 150);
 COMMIT;
 
--- CHECK ì¡°ê±´ì— ë§žì§€ ì•ŠëŠ” ë°ì´í„°ì˜ ì €ìž¥
+-- CHECK Á¶°Ç¿¡ ¸ÂÁö ¾Ê´Â µ¥ÀÌÅÍÀÇ ÀúÀå
 INSERT INTO EMP_CHK
-VALUES (3, 'ìž¥ê¸¸ì‚°', 2800, 300);
+VALUES (3, 'Àå±æ»ê', 2800, 300);
 INSERT INTO EMP_CHK
-VALUES (4, 'ìž„êº½ì •', 4500, 90);
+VALUES (4, 'ÀÓ²©Á¤', 4500, 90);
 
--- 1-5. NOT NULL: ì»¬ëŸ¼ì˜ ë°ì´í„°ë¡œ NULLì´ ì €ìž¥ë˜ì§€ ì•Šê²Œ ë§‰ì•„ì£¼ëŠ” ì œì•½ì¡°ê±´
+-- 1-5. NOT NULL: ÄÃ·³ÀÇ µ¥ÀÌÅÍ·Î NULLÀÌ ÀúÀåµÇÁö ¾Ê°Ô ¸·¾ÆÁÖ´Â Á¦¾àÁ¶°Ç
 CREATE TABLE EMP_NOT_NULL (
     ENO NUMBER(4) PRIMARY KEY,
     ENAME VARCHAR2(20) UNIQUE NOT NULL,
-    JOB VARCHAR2(10) CHECK(JOB = 'ê°œë°œ') NOT NULL,
+    JOB VARCHAR2(10) CHECK(JOB = '°³¹ß') NOT NULL,
     DNO NUMBER(4) REFERENCES DEPT_PK1(DNO) NOT NULL 
 );
 
 DROP TABLE EMP_NOT_NULL;
 
--- NOT NULL ì œì•½ì¡°ê±´ì´ ì§€ì •ëœ ì»¬ëŸ¼ì˜ ë°ì´í„°ë¡œ NULL ì €ìž¥í•˜ë©´ ì—ëŸ¬ê°€ ë°œìƒí•œë‹¤.
+-- NOT NULL Á¦¾àÁ¶°ÇÀÌ ÁöÁ¤µÈ ÄÃ·³ÀÇ µ¥ÀÌÅÍ·Î NULL ÀúÀåÇÏ¸é ¿¡·¯°¡ ¹ß»ýÇÑ´Ù.
 INSERT INTO EMP_NOT_NULL 
-VALUES (1, 'ê³ ê¸°ì²œ', NULL);
+VALUES (1, '°í±âÃµ', NULL);
 INSERT INTO EMP_NOT_NULL 
-VALUES (2, NULL, 'ê°œë°œ');
+VALUES (2, NULL, '°³¹ß');
 
--- ê¸°ì¡´ í…Œì´ë¸”ì—ë„ NOT NULL ì œì•½ì¡°ê±´ ì¶”ê°€
+-- ±âÁ¸ Å×ÀÌºí¿¡µµ NOT NULL Á¦¾àÁ¶°Ç Ãß°¡
 ALTER TABLE PROFESSOR 
     MODIFY PNO VARCHAR2(8) NOT NULL;
 
--- 1-6. DEFAULT: íŠ¹ì • ì»¬ëŸ¼ì˜ ë°ì´í„°ê°€ NULLë¡œ ì˜¤ê±°ë‚˜ ë“¤ì–´ì˜¤ì§€ ì•Šì•˜ì„ ë•Œë¥¼ ëŒ€ë¹„í•´ì„œ ê¸°ë³¸ê°’ì„ ì§€ì •í•´ë†“ì€ ì œì•½ì¡°ê±´
--- DBMSë§ˆë‹¤ DEFAULTì™€ NOT NULLì˜ ìˆœì„œ ì°¨ì´ê°€ ìžˆì§€ë§Œ
--- ê¸°ë³¸ì ìœ¼ë¡œ DEFAULT ì œì•½ì¡°ê±´ì´ ë¨¼ì € ì„¤ì •ë˜ì•¼ í•˜ëŠ” DBMSê°€ ëŒ€ë¶€ë¶„ì´ë‹¤.
+-- 1-6. DEFAULT: Æ¯Á¤ ÄÃ·³ÀÇ µ¥ÀÌÅÍ°¡ NULL·Î ¿À°Å³ª µé¾î¿ÀÁö ¾Ê¾ÒÀ» ¶§¸¦ ´ëºñÇØ¼­ ±âº»°ªÀ» ÁöÁ¤ÇØ³õÀº Á¦¾àÁ¶°Ç
+-- DBMS¸¶´Ù DEFAULT¿Í NOT NULLÀÇ ¼ø¼­ Â÷ÀÌ°¡ ÀÖÁö¸¸
+-- ±âº»ÀûÀ¸·Î DEFAULT Á¦¾àÁ¶°ÇÀÌ ¸ÕÀú ¼³Á¤µÇ¾ß ÇÏ´Â DBMS°¡ ´ëºÎºÐÀÌ´Ù.
 CREATE TABLE EMP_DEFAULT(
     ENO NUMBER(4) PRIMARY KEY,
     ENAME VARCHAR2(20) NOT NULL UNIQUE,
-    JOB VARCHAR2(10) DEFAULT 'ê°œë°œ' NOT NULL,
+    JOB VARCHAR2(10) DEFAULT '°³¹ß' NOT NULL,
     HDATE DATE DEFAULT SYSDATE NOT NULL,
     DNO NUMBER(4) DEFAULT 0 NOT NULL
 );
 
--- DEFAULT ê°’ì´ ì§€ì •ëœ ì»¬ëŸ¼ì„ ì œì™¸í•œ ë‚˜ë¨¸ì§€ ì»¬ëŸ¼ë“¤ì— ë°ì´í„° ì €ìž¥
+-- DEFAULT °ªÀÌ ÁöÁ¤µÈ ÄÃ·³À» Á¦¿ÜÇÑ ³ª¸ÓÁö ÄÃ·³µé¿¡ µ¥ÀÌÅÍ ÀúÀå
 INSERT INTO EMP_DEFAULT(ENO, ENAME)
-VALUES (1, 'ê³ ê¸°ì²œ');
+VALUES (1, '°í±âÃµ');
 COMMIT;
 
 SELECT *
     FROM EMP_DEFAULT;
 
--- 1-7. ì œì•½ì¡°ê±´ì´ ëª¨ë‘ ì¶”ê°€ëœ CREATE TABLE êµ¬ë¬¸
+-- 1-7. Á¦¾àÁ¶°ÇÀÌ ¸ðµÎ Ãß°¡µÈ CREATE TABLE ±¸¹®
 -- FNO(PK, NUMBER(10)), FNAME(VARCHAR2(50)), NOT NULL, UNIQUE),
--- LOC(VARCHAR2(10), DEFAULT 'ì„œìš¸', NOT NULL) ì»¬ëŸ¼ì„ ê°–ëŠ” FACTORY1 ìƒì„±í•˜ì„¸ìš”.
+-- LOC(VARCHAR2(10), DEFAULT '¼­¿ï', NOT NULL) ÄÃ·³À» °®´Â FACTORY1 »ý¼ºÇÏ¼¼¿ä.
 
 CREATE TABLE FACTORY1 (
     FNO NUMBER(10) PRIMARY KEY,
     FNAME VARCHAR2(50) NOT NULL UNIQUE,
-    LOC VARCHAR2(10) DEFAULT 'ì„œìš¸' NOT NULL
+    LOC VARCHAR2(10) DEFAULT '¼­¿ï' NOT NULL
 );
 
 
 -- GNO(NUMBER(5), PK), GNAME(VARCHAR2(50), NOT NULL), PRI(NUMBER(5), DEFAULT 10000)
--- FNO(NUMBER(10), FK(FACTORY1ì˜ FNO), NOT NULL) ì»¬ëŸ¼ì„ ê°–ëŠ” GOODS1ì„ ìƒì„±í•˜ì„¸ìš”.
+-- FNO(NUMBER(10), FK(FACTORY1ÀÇ FNO), NOT NULL) ÄÃ·³À» °®´Â GOODS1À» »ý¼ºÇÏ¼¼¿ä.
 CREATE TABLE GOODS1 (
     GNO NUMBER(5),
     GNAME VARCHAR2(50) NOT NULL,
@@ -603,9 +603,9 @@ CREATE TABLE GOODS1 (
         REFERENCES FACTORY1(FNO)
 );
 
--- PNO(NUMBER(6), PK), GNO(NUMBER(5), FK(GOODS1ì˜ GNO), NOT NULL),
+-- PNO(NUMBER(6), PK), GNO(NUMBER(5), FK(GOODS1ÀÇ GNO), NOT NULL),
 -- PRICE(NUMBER(5), DEFAULT 7000), PDATE(DATE, DEFAULT SYSDATE, NOT NULL)
--- ì»¬ëŸ¼ì„ ê°–ëŠ” PROD1 í…Œì´ë¸”ì„ ìƒì„±í•˜ì„¸ìš”.
+-- ÄÃ·³À» °®´Â PROD1 Å×ÀÌºíÀ» »ý¼ºÇÏ¼¼¿ä.
 CREATE TABLE PROD1 (
     PNO NUMBER(6),
     GNO NUMBER(5) /*REFERENCES GOODS1(GNO)*/ NOT NULL,

@@ -1,17 +1,17 @@
--- 1. DDL(DATA DEFINITION LANGUAGER): ë°ì´í„° ì •ì˜
--- ë°ì´í„°ë¥¼ ê´€ë¦¬í•˜ê¸° ìœ„í•œ  ê°ì²´ë“¤ì„ ì¡°ìž‘í•˜ê¸° ìœ„í•œ ëª…ë ¹ì–´
--- 1-1. CTREATE: ê°ì²´ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ ëª…ë ¹ì–´
--- CREATE ê°ì²´ëª…(TABLE, USER, INDEX, SEQUENCE....) ê°ì²´ì˜ë³„ì¹­(í…Œì´ë¸”ëª…, ìœ ì €ëª…, ì¸ë±ìŠ¤ëª…, ì‹œí€¸ìŠ¤ëª…....)
--- ë‹¤ë¥¸ í…Œì´ë¸”ì„ ì°¸ì¡°í•˜ì—¬ í…Œì´ë¸” ìƒì„±
+-- 1. DDL(DATA DEFINITION LANGUAGER): µ¥ÀÌÅÍ Á¤ÀÇ
+-- µ¥ÀÌÅÍ¸¦ °ü¸®ÇÏ±â À§ÇÑ  °´Ã¼µéÀ» Á¶ÀÛÇÏ±â À§ÇÑ ¸í·É¾î
+-- 1-1. CTREATE: °´Ã¼¸¦ »ý¼ºÇÏ±â À§ÇÑ ¸í·É¾î
+-- CREATE °´Ã¼¸í(TABLE, USER, INDEX, SEQUENCE....) °´Ã¼ÀÇº°Äª(Å×ÀÌºí¸í, À¯Àú¸í, ÀÎµ¦½º¸í, ½ÃÄý½º¸í....)
+-- ´Ù¸¥ Å×ÀÌºíÀ» ÂüÁ¶ÇÏ¿© Å×ÀÌºí »ý¼º
 CREATE TABLE STUDENT_COPY2
 	AS SELECT * FROM STUDENT;
 	
 SELECT *
 	FROM STUDENT_COPY2;
 	
--- ì›í•˜ëŠ” ëŒ€ë¡œ ì»¬ëŸ¼ëª…ê³¼ ê°œìˆ˜ë¥¼ ì§€ì •í•  ìˆ˜ë„ ìžˆë‹¤.
--- ì»¬ëŸ¼ì˜ íƒ€ìž…ì€ SELECT êµ¬ë¬¸ì—ì„œ ì¡°íšŒí•´ì˜¤ëŠ” ë°ì´í„°ì˜ íƒ€ìž…ê³¼ ë§žì¶°ì§€ê¸° ë•Œë¬¸ì— ë°”ê¿€ ìˆ˜ ì—†ë‹¤.
--- ê³¼ëª©ì˜ ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, ë‹´ë‹¹êµìˆ˜ë²ˆí˜¸, ë‹´ë‹¹êµìˆ˜ì´ë¦„, ê³¼ëª©ë³„ ê¸°ë§ê³ ì‚¬ ì„±ì ì˜ í‰ê· ì´ ì €ìž¥ëœ í…Œì´ë¸” ìƒì„±
+-- ¿øÇÏ´Â ´ë·Î ÄÃ·³¸í°ú °³¼ö¸¦ ÁöÁ¤ÇÒ ¼öµµ ÀÖ´Ù.
+-- ÄÃ·³ÀÇ Å¸ÀÔÀº SELECT ±¸¹®¿¡¼­ Á¶È¸ÇØ¿À´Â µ¥ÀÌÅÍÀÇ Å¸ÀÔ°ú ¸ÂÃçÁö±â ¶§¹®¿¡ ¹Ù²Ü ¼ö ¾ø´Ù.
+-- °ú¸ñÀÇ °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ´ã´ç±³¼ö¹øÈ£, ´ã´ç±³¼öÀÌ¸§, °ú¸ñº° ±â¸»°í»ç ¼ºÀûÀÇ Æò±ÕÀÌ ÀúÀåµÈ Å×ÀÌºí »ý¼º
 CREATE TABLE COURSE_PROFESSOR_AVGRES(COURSE_NO, COURSE_NAME, PRO_NO, PRO_NAME, AVG_RESULT)
 	AS SELECT SC.CNO
 			, C.CNAME
@@ -29,9 +29,9 @@ SELECT *
 	FROM COURSE_PROFESSOR_AVGRES;
 	
 
--- í•™ìƒë²ˆí˜¸, í•™ìƒì´ë¦„, í•™ìƒë³„ ê¸°ë§ê³ ì‚¬ ì„±ì ì˜ í‰ê· ì ìˆ˜(ì†Œìˆ˜ì  ë‘˜ì§¸ìžë¦¬), í•™ìƒë³„ ê¸°ë§ê³ ì‚¬ì˜ í‰ê· ì ìˆ˜ì˜ ë“±ê¸‰ì„ ê°€ì§€ëŠ” -- í†µê³„í•¨ìˆ˜ ë“¤ì–´ê°€ë©´ ëŒ€ë¶€ë¶„ ì„œë¸Œì¿¼ë¦¬ë¡œ ë¬¶ì–´ì¤˜ì•¼í•¨
--- í…Œì´ë¸” ST_AVGRES_GRADEë¥¼ ìƒì„±í•˜ì„¸ìš”.
--- ìž˜ëª»ëœ ì˜ˆì‹œ
+-- ÇÐ»ý¹øÈ£, ÇÐ»ýÀÌ¸§, ÇÐ»ýº° ±â¸»°í»ç ¼ºÀûÀÇ Æò±ÕÁ¡¼ö(¼Ò¼öÁ¡ µÑÂ°ÀÚ¸®), ÇÐ»ýº° ±â¸»°í»çÀÇ Æò±ÕÁ¡¼öÀÇ µî±ÞÀ» °¡Áö´Â -- Åë°èÇÔ¼ö µé¾î°¡¸é ´ëºÎºÐ ¼­ºêÄõ¸®·Î ¹­¾îÁà¾ßÇÔ
+-- Å×ÀÌºí ST_AVGRES_GRADE¸¦ »ý¼ºÇÏ¼¼¿ä.
+-- Àß¸øµÈ ¿¹½Ã
 CREATE TABLE ST_AVGRES_GRADE(STUDENT_NO, STUDENT_NAME, AVG_RESULT, GRADE_SCORE)
 	AS SELECT ST.SNO
 		 	, ST.SNAME
@@ -67,43 +67,43 @@ CREATE TABLE ST_AVGRES_GRADE(STUDENT_NO, STUDENT_NAME, AVG_RESULT, GRADE_SCORE)
 			  ON A.AVG_RESULT BETWEEN GR.LOSCORE AND GR.HISCORE;
 			 
 SELECT *
-	FROM ST_AVGRES_GRADE; -- 7ê°œ ë°ì´í„° ëˆ„ë½ìžˆìŒ, Dëž‘ C ë“±ê¸‰ ì‚¬ì´ì— ì ìˆ˜ë“¤ì´ ëˆ„ë½ë¨
+	FROM ST_AVGRES_GRADE; -- 7°³ µ¥ÀÌÅÍ ´©¶ôÀÖÀ½, D¶û C µî±Þ »çÀÌ¿¡ Á¡¼öµéÀÌ ´©¶ôµÊ
 
--- 1-2. ALTER: ê°ì²´ë¥¼ ë³€ê²½í•˜ê±°ë‚˜ ìˆ˜ì •í•  ë•Œ ì‚¬ìš©í•˜ëŠ” ëª…ë ¹ì–´
--- ALTER ê°ì²´ëª… (TABLEM, USER, SESSION, INDEX, SEQUENCE...) ê°ì²´ì˜ë³„ì¹­(í…Œì´ë¸”ëª…, ì¸ë±ìŠ¤ëª…, ìœ ì €ëª…...)
---   ìž‘ì—…ë‚´ìš©(SET, ADD, MODIFY, DROP...)
--- ADD: í…Œì´ë¸”ì— ì»¬ëŸ¼ì¶”ê°€
--- ADD 'ì¶”ê°€í•  ì»¬ëŸ¼ì˜ ì´ë¦„' 'ì»¬ëŸ¼ì˜ ë°ì´í„° íƒ€ìž…'
+-- 1-2. ALTER: °´Ã¼¸¦ º¯°æÇÏ°Å³ª ¼öÁ¤ÇÒ ¶§ »ç¿ëÇÏ´Â ¸í·É¾î
+-- ALTER °´Ã¼¸í (TABLEM, USER, SESSION, INDEX, SEQUENCE...) °´Ã¼ÀÇº°Äª(Å×ÀÌºí¸í, ÀÎµ¦½º¸í, À¯Àú¸í...)
+--   ÀÛ¾÷³»¿ë(SET, ADD, MODIFY, DROP...)
+-- ADD: Å×ÀÌºí¿¡ ÄÃ·³Ãß°¡
+-- ADD 'Ãß°¡ÇÒ ÄÃ·³ÀÇ ÀÌ¸§' 'ÄÃ·³ÀÇ µ¥ÀÌÅÍ Å¸ÀÔ'
 ALTER TABLE EMP_DNO30 ADD ADDR VARCHAR2(1000);
 
 
--- RENAME: í…Œì´ë¸” ì»¬ëŸ¼ì˜ ì´ë¦„ ë³€ê²½
--- RENAME COLUMN 'í˜„ìž¬ ì‚¬ìš©ì¤‘ì¸ ì»¬ëŸ¼ëª…' TO 'ë³€ê²½í•  ì»¬ëŸ¼ëª…'
+-- RENAME: Å×ÀÌºí ÄÃ·³ÀÇ ÀÌ¸§ º¯°æ
+-- RENAME COLUMN 'ÇöÀç »ç¿ëÁßÀÎ ÄÃ·³¸í' TO 'º¯°æÇÒ ÄÃ·³¸í'
 ALTER TABLE EMP_DNO30 RENAME COLUMN ADDR TO ADDRESS;
 
--- MODIFY: í…Œì´ë¸” ì»¬ëŸ¼ì˜ ë°ì´í„°íƒ€ìž…ì„ ë³€ê²½
--- MODIFY 'ë°ì´í„° íƒ€ìž…ì„ ë³€ê²½í•  ì»¬ëŸ¼ëª…' 'ë³€ê²½í•  ë°ì´í„° íƒ€ìž…'
--- ë°ì´í„° íƒ€ìž…ì„ ë³€ê²½í•  ì»¬ëŸ¼ì€ ë°ì´í„°ê°€ ë¹„ì–´ìžˆì–´ì•¼ í•œë‹¤.
+-- MODIFY: Å×ÀÌºí ÄÃ·³ÀÇ µ¥ÀÌÅÍÅ¸ÀÔÀ» º¯°æ
+-- MODIFY 'µ¥ÀÌÅÍ Å¸ÀÔÀ» º¯°æÇÒ ÄÃ·³¸í' 'º¯°æÇÒ µ¥ÀÌÅÍ Å¸ÀÔ'
+-- µ¥ÀÌÅÍ Å¸ÀÔÀ» º¯°æÇÒ ÄÃ·³Àº µ¥ÀÌÅÍ°¡ ºñ¾îÀÖ¾î¾ß ÇÑ´Ù.
 ALTER TABLE EMP_DNO30 MODIFY COMM VARCHAR2(10);
 
 ALTER TABLE EMP_DNO30 MODIFY ADDRESS NUMBER(10);
 
--- DROP: í…Œì´ë¸” ì»¬ëŸ¼ì„ ì‚­ì œ
--- DROP COLUMN 'ì‚­ì œí•  ì»¬ëŸ¼ëª…'
--- ì»¬ëŸ¼ì— ì €ìž¥ë˜ì–´ ìžˆë˜ ë°ì´í„°ë“¤ë„ í•¨ê»˜ ì‚­ì œëœë‹¤.
+-- DROP: Å×ÀÌºí ÄÃ·³À» »èÁ¦
+-- DROP COLUMN '»èÁ¦ÇÒ ÄÃ·³¸í'
+-- ÄÃ·³¿¡ ÀúÀåµÇ¾î ÀÖ´ø µ¥ÀÌÅÍµéµµ ÇÔ²² »èÁ¦µÈ´Ù.
 ALTER TABLE EMP_DNO30 DROP COLUMN ADDRESS;
 
--- 1-3. DROP: ë°ì´í„°ë² ì´ìŠ¤ì˜ ê°ì²´ë¥¼ ì‚­ì œí•˜ëŠ” ëª…ë ¹ì–´
--- DROP ê°ì²´ëª…(TABLE, INDEX, SEQUENCE, USER, ...) ê°ì²´ì˜ ë³„ì¹­(í…Œì´ë¸”ëª…, ìœ ì €ëª…, ì¸ë±ìŠ¤ëª…, ì‹œí€¸ìŠ¤ëª…, ...)
+-- 1-3. DROP: µ¥ÀÌÅÍº£ÀÌ½ºÀÇ °´Ã¼¸¦ »èÁ¦ÇÏ´Â ¸í·É¾î
+-- DROP °´Ã¼¸í(TABLE, INDEX, SEQUENCE, USER, ...) °´Ã¼ÀÇ º°Äª(Å×ÀÌºí¸í, À¯Àú¸í, ÀÎµ¦½º¸í, ½ÃÄý½º¸í, ...)
 DROP TABLE COURSE_PROFESSOR;
 
--- DROP TABLE ëª…ë ¹ì–´ë¡œ ì‚­ì œëœ í…Œì´ë¸”ì€ TIMESTAMPë¥¼ ì´ìš©í•´ì„œ ì‚´ë¦´ìˆ˜ ì—†ë‹¤.
--- ENTERPRISE ë²„ì „ì—ì„œëŠ” FLASHBACKì´ë¼ëŠ” ê¸°ëŠ¥ì„ ì œê³µí•´ì„œ DROP í…Œì´ë¸”ë„ ì‚´ë¦´ ìˆ˜ê°€ ìžˆë‹¤.
+-- DROP TABLE ¸í·É¾î·Î »èÁ¦µÈ Å×ÀÌºíÀº TIMESTAMP¸¦ ÀÌ¿ëÇØ¼­ »ì¸±¼ö ¾ø´Ù.
+-- ENTERPRISE ¹öÀü¿¡¼­´Â FLASHBACKÀÌ¶ó´Â ±â´ÉÀ» Á¦°øÇØ¼­ DROP Å×ÀÌºíµµ »ì¸± ¼ö°¡ ÀÖ´Ù.
 SELECT *
 	FROM COURSE_PROFESSOR cp 
 	AS OF TIMESTAMP(SYSTIMESTAMP - INTERVAL '5' MINUTE);
 	
--- TIMESTAMPë¡œ DELETE êµ¬ë¬¸ìœ¼ë¡œ ì‚­ì œëœ ë°ì´í„° ë³µêµ¬
+-- TIMESTAMP·Î DELETE ±¸¹®À¸·Î »èÁ¦µÈ µ¥ÀÌÅÍ º¹±¸
 DELETE FROM EMP_DNO30;
 COMMIT;
 
@@ -115,17 +115,17 @@ SELECT *
 	AS OF TIMESTAMP(SYSTIMESTAMP - INTERVAL '5' MINUTE);
 COMMIT;
 
--- 1-4. RENAME: ê°ì²´ì˜ ì´ë¦„ì„ ë³€ê²½
--- RENAME 'í˜„ìž¬ ê°ì²´ì˜ ë³„ì¹­' TO 'ë³€ê²½í•  ê°ì²´ì˜ ë³„ì¹­'
+-- 1-4. RENAME: °´Ã¼ÀÇ ÀÌ¸§À» º¯°æ
+-- RENAME 'ÇöÀç °´Ã¼ÀÇ º°Äª' TO 'º¯°æÇÒ °´Ã¼ÀÇ º°Äª'
 RENAME EMP_DNO30 TO EMP_DNO;
 
 SELECT *
 	FROM EMP_DNO;
 
--- 1-5. TRUNCATE: í…Œì´ë¸”ìœ¼ ë°ì´í„°ë¥¼ ì‚­ì œ
--- TRUNCATE TABLE 'í…Œì´ë¸”ëª…'
--- WHERE ì ˆì„ ì‚¬ìš©í•  ìˆ˜ ì—†ì–´ì„œ ëª¨ë“  ë°ì´í„°ë¥¼ ì‚­ì œí•œë‹¤.
--- TRUNCATEëŠ” DDLì´ê¸° ë•Œë¬¸ì— íŠ¸ëžœìž­ì…˜ì´ ë°”ë¡œ ì¢…ë£Œë˜ì„œ ROLLBACKìœ¼ë¡œ ìž‘ì—…ì„ ì·¨ì†Œí•  ìˆ˜ ì—†ë‹¤.
+-- 1-5. TRUNCATE: Å×ÀÌºíÀ¸ µ¥ÀÌÅÍ¸¦ »èÁ¦
+-- TRUNCATE TABLE 'Å×ÀÌºí¸í'
+-- WHERE ÀýÀ» »ç¿ëÇÒ ¼ö ¾ø¾î¼­ ¸ðµç µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÑ´Ù.
+-- TRUNCATE´Â DDLÀÌ±â ¶§¹®¿¡ Æ®·£Àè¼ÇÀÌ ¹Ù·Î Á¾·áµÇ¼­ ROLLBACKÀ¸·Î ÀÛ¾÷À» Ãë¼ÒÇÒ ¼ö ¾ø´Ù.
 TRUNCATE TABLE EMP_DNO;
 
 
