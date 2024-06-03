@@ -1,36 +1,36 @@
--- 1. DML(DATA MANIPULATION LANGUAGE): µ¥ÀÌÅÍ Á¶ÀÛ ¾ð¾î
--- µ¥ÀÌÅÍ¸¦ ÀúÀå, ¼öÁ¤ »èÁ¦ÇÏ´Â ¾ð¾î·Î INSERT INTO, UPDATE SET, DELETE FROMÀÌ Á¸ÀçÇÑ´Ù.
--- DMLÀº Æ®·£Àè¼ÇÀ» ¿Ï·áÇÏ±â À§ÇØ¼­ Ç×»ó COMMITÀÌ³ª ROLLBACKÀ» µ¿¹ÝÇÑ´Ù.
--- 1-1. INSERT INTO: Å×ÀÌºí¿¡ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ¸í·É¾î
--- ÀÏºÎ ÄÃ·³¿¡ ´ëÇÑ µ¥ÀÌÅÍ¸¦ ÀúÀå
-INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9997', 'Àå±æ»ê', '¼³°è', SYSDATE);
+-- 1. DML(DATA MANIPULATION LANGUAGE): ë°ì´í„° ì¡°ìž‘ ì–¸ì–´
+-- ë°ì´í„°ë¥¼ ì €ìž¥, ìˆ˜ì • ì‚­ì œí•˜ëŠ” ì–¸ì–´ë¡œ INSERT INTO, UPDATE SET, DELETE FROMì´ ì¡´ìž¬í•œë‹¤.
+-- DMLì€ íŠ¸ëžœìž­ì…˜ì„ ì™„ë£Œí•˜ê¸° ìœ„í•´ì„œ í•­ìƒ COMMITì´ë‚˜ ROLLBACKì„ ë™ë°˜í•œë‹¤.
+-- 1-1. INSERT INTO: í…Œì´ë¸”ì— ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ëª…ë ¹ì–´
+-- ì¼ë¶€ ì»¬ëŸ¼ì— ëŒ€í•œ ë°ì´í„°ë¥¼ ì €ìž¥ 
+INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9997', 'ìž¥ê¸¸ì‚°', 'ì„¤ê³„', SYSDATE);
 COMMIT;
 
 SELECT *
 	FROM EMP;
 	
-INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9996', 'ÀÓ²©Á¤', '°³¹ß', SYSDATE);
-INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9995', 'È«±æµ¿', 'È¸°è', SYSDATE);
-INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9994', 'Á¶º´Á¶', 'Áö¿ø', SYSDATE);
-INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9993', 'Á¤µµÀü', '°æ¿µ', SYSDATE);
--- COMMITÀÌ ¹ß»ýÇÑ ÀÛ¾÷¿¡ ´ëÇØ¼­´Â ROLLBACKÀ¸·Î Ãë¼ÒÇÒ ¼ö ¾ø´Ù.
+INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9996', 'ìž„êº½ì •', 'ê°œë°œ', SYSDATE);
+INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9995', 'í™ê¸¸ë™', 'íšŒê³„', SYSDATE);
+INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9994', 'ì¡°ë³‘ì¡°', 'ì§€ì›', SYSDATE);
+INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9993', 'ì •ë„ì „', 'ê²½ì˜', SYSDATE);
+-- COMMITì´ ë°œìƒí•œ ìž‘ì—…ì— ëŒ€í•´ì„œëŠ” ROLLBACKìœ¼ë¡œ ì·¨ì†Œí•  ìˆ˜ ì—†ë‹¤.
 ROLLBACK;
 
--- INSERT INTO ½Ã ÁöÁ¤ÇÑ ÄÃ·³ÀÇ °³¼ö¿Í Å¸ÀÔ¿¡ ¸Â´Â µ¥ÀÌÅÍ¸¦ ÀÔ·ÂÇØ¾ß ÇÑ´Ù.
-INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9997', 'Àå±æ»ê', '¼³°è');
-INSERT INTO EMP(SAL) VALUES('¤±¤±¤±¤±¤±¤±¤±¤±');
--- VARCHAR Å¸ÀÔÀÇ ¼ýÀÚ °ªÀÌ NUMBER Å¸ÀÔÀ¸·Î Çüº¯È¯ÀÌ ÀÏ¾î³ª¸é¼­ ÀúÀåµÈ´Ù.
+-- INSERT INTO ì‹œ ì§€ì •í•œ ì»¬ëŸ¼ì˜ ê°œìˆ˜ì™€ íƒ€ìž…ì— ë§žëŠ” ë°ì´í„°ë¥¼ ìž…ë ¥í•´ì•¼ í•œë‹¤.
+INSERT INTO EMP(ENO, ENAME, JOB, HDATE) VALUES('9997', 'ìž¥ê¸¸ì‚°', 'ì„¤ê³„');
+INSERT INTO EMP(SAL) VALUES('ã…ã…ã…ã…ã…ã…ã…ã…');
+-- VARCHAR íƒ€ìž…ì˜ ìˆ«ìž ê°’ì´ NUMBER íƒ€ìž…ìœ¼ë¡œ í˜•ë³€í™˜ì´ ì¼ì–´ë‚˜ë©´ì„œ ì €ìž¥ëœë‹¤.
 INSERT INTO EMP(SAL) VALUES('123897');
 
--- ¸ðµç ÄÃ·³ÀÇ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¶§´Â ÄÃ·³ÁöÁ¤À» »ý·«ÇØµµ µÈ´Ù.
+-- ëª¨ë“  ì»¬ëŸ¼ì˜ ë°ì´í„°ë¥¼ ì €ìž¥í•  ë•ŒëŠ” ì»¬ëŸ¼ì§€ì •ì„ ìƒëžµí•´ë„ ëœë‹¤.
 INSERT INTO EMP(ENO, ENAME, JOB, MGR, HDATE, SAL, COMM, DNO)
-	VALUES ('9996', 'ÀÓ²©Á¤', 'È¸°è', '0001', SYSDATE, 4000, 300, '10');
+	VALUES ('9996', 'ìž„êº½ì •', 'íšŒê³„', '0001', SYSDATE, 4000, 300, '10');
 
-INSERT INTO EMP VALUES ('9995', 'Á¶º´Á¶', 'È¸°è', '0201', SYSDATE, 3700, 280, '20');
+INSERT INTO EMP VALUES ('9995', 'ì¡°ë³‘ì¡°', 'íšŒê³„', '0201', SYSDATE, 3700, 280, '20');
 
 COMMIT;
 
--- ´Ù·®ÀÇ µ¥ÀÌÅÍ¸¦ SELECT ±¸¹®À» ÀÌ¿ëÇØ¼­ ÀúÀå
+-- ë‹¤ëŸ‰ì˜ ë°ì´í„°ë¥¼ SELECT êµ¬ë¬¸ì„ ì´ìš©í•´ì„œ ì €ìž¥
 CREATE TABLE EMP_DNO30(
 	ENO VARCHAR2(4),
 	ENAME VARCHAR2(20),
@@ -42,7 +42,7 @@ CREATE TABLE EMP_DNO30(
 	DNO VARCHAR2(2)
 );
 
--- DNOÀÌ 30ÀÎ »ç¿ø ¸ñ·ÏÀ» EMP Å×ÀÏºí¿¡¼­ Á¶È¸ÇØ¼­ EMP_DNO30¿¡ ÀúÀå
+-- DNOì´ 30ì¸ ì‚¬ì› ëª©ë¡ì„ EMP í…Œì¼ë¸”ì—ì„œ ì¡°íšŒí•´ì„œ EMP_DNO30ì— ì €ìž¥
 INSERT INTO EMP_DNO30
 SELECT *
 	FROM EMP
@@ -52,8 +52,8 @@ COMMIT;
 SELECT *
 	FROM EMP_DNO30;
 
--- SELECT ±¸¹®À» ÀÌ¿ëÇØ¼­ ´Ù·®ÀÇ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Âµ¥ Æ¯Á¤ ÄÃ·³ÀÇ µ¥ÀÌÅÍ¸¸ ÀúÀå
--- DNOÀÌ 10ÀÎ »ç¿øÀÇ »ç¿ø¹øÈ£, »ç¿øÀÌ¸§¸¸ EMP Å×ÀÌºí¿¡¼­ Á¶È¸ÇØ¼­ EMO_DNO30 Å×ÀÌºí¿¡ ÀúÀå
+-- SELECT êµ¬ë¬¸ì„ ì´ìš©í•´ì„œ ë‹¤ëŸ‰ì˜ ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ”ë° íŠ¹ì • ì»¬ëŸ¼ì˜ ë°ì´í„°ë§Œ ì €ìž¥
+-- DNOì´ 10ì¸ ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì‚¬ì›ì´ë¦„ë§Œ EMP í…Œì´ë¸”ì—ì„œ ì¡°íšŒí•´ì„œ EMO_DNO30 í…Œì´ë¸”ì— ì €ìž¥
 INSERT INTO EMP_DNO30(ENO, ENAME)
 SELECT ENO 
 	 , ENAME 
@@ -65,10 +65,10 @@ INSERT INTO EMP_DNO30(ENO, ENAME)
 SELECT DNO
 	 , DNAME
 	 FROM DEPT
-	 WHERE LOC = '¼­¿ï';
+	 WHERE LOC = 'ì„œìš¸';
 COMMIT;
 
-/*DROP TABLE COURSE_PROFESSOR;*/ -- TABLE »èÁ¦
+/*DROP TABLE COURSE_PROFESSOR;*/ -- TABLE ì‚­ì œ
 
 CREATE TABLE COURSE_PROFESSOR(
 	CNUM VARCHAR2(8),
@@ -78,8 +78,8 @@ CREATE TABLE COURSE_PROFESSOR(
 	PROFESSOR_NAME VARCHAR2(20)
 );
 
--- ¸ðµç °ú¸ñÀÇ °ú¸ñ¹øÈ£, °ú¸ñÀÌ¸§, ÇÐÁ¡, ´ã´çÇÏ´Â ±³¼öÀÇ ±³¼ö¹øÈ£, ±³¼öÀÌ¸§ COURSE_PROFESSOR ÀúÀå
--- ´ã´ç±³¼ö°¡ ¾ø´Â °ú¸ñÀº ´ã´ç±³¼ö¹øÈ£¿Í ÀÌ¸§À» NULL·Î ÀúÀå
+-- ëª¨ë“  ê³¼ëª©ì˜ ê³¼ëª©ë²ˆí˜¸, ê³¼ëª©ì´ë¦„, í•™ì , ë‹´ë‹¹í•˜ëŠ” êµìˆ˜ì˜ êµìˆ˜ë²ˆí˜¸, êµìˆ˜ì´ë¦„ COURSE_PROFESSOR ì €ìž¥
+-- ë‹´ë‹¹êµìˆ˜ê°€ ì—†ëŠ” ê³¼ëª©ì€ ë‹´ë‹¹êµìˆ˜ë²ˆí˜¸ì™€ ì´ë¦„ì„ NULLë¡œ ì €ìž¥
 
 INSERT INTO COURSE_PROFESSOR
 SELECT C.CNO
@@ -95,8 +95,8 @@ COMMIT;
 SELECT *
 	FROM COURSE_PROFESSOR;
 
--- 1-2. UPDATE SET: µ¥ÀÌÅÍ¸¦ ¼öÁ¤ÇÏ´Â ¸í·É¾î
--- WHERE ÀýÀ» »ç¿ëÇÏÁö ¾ÊÀ¸¸é ¸ðµç µ¥ÀÌÅÍ°¡ ¼öÁ¤µÈ´Ù.
+-- 1-2. UPDATE SET: ë°ì´í„°ë¥¼ ìˆ˜ì •í•˜ëŠ” ëª…ë ¹ì–´
+-- WHERE ì ˆì„ ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë©´ ëª¨ë“  ë°ì´í„°ê°€ ìˆ˜ì •ëœë‹¤.
 
 UPDATE EMP_DNO30 
 	SET MGR = '0002';
@@ -106,20 +106,20 @@ COMMIT;
 SELECT *
 	FROM EMP_DNO30;
 
--- WHERE Àý·Î Æ¯Á¤ µ¥ÀÌÅÍ¸¸ ¼öÁ¤
--- EMP_DNO30Å×ÀÌºí¿¡¼­ ENO 2007ÀÎ »ç¿øÀÇ ±Þ¿©¸¦ 3100À¸·Î ¼öÁ¤
+-- WHERE ì ˆë¡œ íŠ¹ì • ë°ì´í„°ë§Œ ìˆ˜ì •
+-- EMP_DNO30í…Œì´ë¸”ì—ì„œ ENO 2007ì¸ ì‚¬ì›ì˜ ê¸‰ì—¬ë¥¼ 3100ìœ¼ë¡œ ìˆ˜ì •
 UPDATE EMP_DNO30 
 	SET 
 		SAL = 3100
 	WHERE ENO = '2007';
 COMMIT;
 
--- ¿©·¯°³ÀÇ ÄÃ·³ µ¥ÀÌÅÍ¸¦ ÇÑ ¹ø¿¡ ¼öÁ¤ÇÒ ¶§´Â ¼öÁ¤ÇÒ ÄÃ·³À» ,·Î ¹­¾î¼­ ÁöÁ¤
--- EMP_DNO30Å×ÀÌºí¿¡¼­ ENOÀÌ 3004ÀÎ »ç¿øÀÇ ¾÷¹«¸¦ °æ¿µÀ¸·Î MGRÀº 2003À¸·Î HDATE´Â ¿À´Ã³¯Â¥·Î SALÀº 5000À¸·Î
--- COMM´Â 500À¸·Î ¼öÁ¤
+-- ì—¬ëŸ¬ê°œì˜ ì»¬ëŸ¼ ë°ì´í„°ë¥¼ í•œ ë²ˆì— ìˆ˜ì •í•  ë•ŒëŠ” ìˆ˜ì •í•  ì»¬ëŸ¼ì„ ,ë¡œ ë¬¶ì–´ì„œ ì§€ì •
+-- EMP_DNO30í…Œì´ë¸”ì—ì„œ ENOì´ 3004ì¸ ì‚¬ì›ì˜ ì—…ë¬´ë¥¼ ê²½ì˜ìœ¼ë¡œ MGRì€ 2003ìœ¼ë¡œ HDATEëŠ” ì˜¤ëŠ˜ë‚ ì§œë¡œ SALì€ 5000ìœ¼ë¡œ
+-- COMMëŠ” 500ìœ¼ë¡œ ìˆ˜ì •
 UPDATE EMP_DNO30 
 	SET 
-		JOB = '°æ¿µ',
+		JOB = 'ê²½ì˜',
 		MGR = '2003',
 		HDATE = SYSDATE,
 		SAL = 5000,
@@ -135,8 +135,8 @@ SELECT *
 	FROM EMP;
 COMMIT;
 
--- EMP_DNO30 Å×ÀÌºí¿¡¼­ DNOÀÌ 20, 30ºÎ¼­¸¦ 60ºÎ¼­·Î ÅëÇÕÇÏ°í
--- ÇØ´ç ºÎ¼­ÀÇ »ç¿øµéÀÇ º¸³Ê½º¸¦ 50%ÀÎ»ó
+-- EMP_DNO30 í…Œì´ë¸”ì—ì„œ DNOì´ 20, 30ë¶€ì„œë¥¼ 60ë¶€ì„œë¡œ í†µí•©í•˜ê³ 
+-- í•´ë‹¹ ë¶€ì„œì˜ ì‚¬ì›ë“¤ì˜ ë³´ë„ˆìŠ¤ë¥¼ 50%ì¸ìƒ
 UPDATE EMP_DNO30 
 	SET
 		DNO = '60',
@@ -147,15 +147,15 @@ COMMIT;
 SELECT *
 	FROM EMP_DNO30;
 
--- ¼­ºêÄõ¸®¸¦ ÀÌ¿ëÇÑ µ¥ÀÌÅÍ ¼öÁ¤
--- SET Àý¿¡ ¼­ºêÄõ¸®ÀÇ °á°ú·Î ³ª¿À´Â ÄÃ·³ÀÇ °³¼ö¸¸Å­ ()¹­Àº ÄÃ·³À» ÁöÁ¤ÇÏ°í = ´ÙÀ½¿¡ ¼­ºêÄõ¸®¸¦ ÀÛ¼ºÇÑ´Ù.
--- ()·Î ¹­ÀÎ ÄÃ·³ÀÇ °³¼ö¿Í Å¸ÀÔÀÌ ¼­ºêÄõ¸®ÀÇ °á°úÀÇ µ¥ÀÌÅÍÀÇ ÄÃ·³°³¼ö¿Í Å¸ÀÔÀÌ ÀÏÄ¡ÇØ¾ß ÇÑ´Ù.
--- ¼­ºêÄõ¸®ÀÇ °á°ú´Â ÇÑ Çà¸¸ Á¶È¸µÅ¾ß ÇÑ´Ù.
+-- ì„œë¸Œì¿¼ë¦¬ë¥¼ ì´ìš©í•œ ë°ì´í„° ìˆ˜ì •
+-- SET ì ˆì— ì„œë¸Œì¿¼ë¦¬ì˜ ê²°ê³¼ë¡œ ë‚˜ì˜¤ëŠ” ì»¬ëŸ¼ì˜ ê°œìˆ˜ë§Œí¼ ()ë¬¶ì€ ì»¬ëŸ¼ì„ ì§€ì •í•˜ê³  = ë‹¤ìŒì— ì„œë¸Œì¿¼ë¦¬ë¥¼ ìž‘ì„±í•œë‹¤.
+-- ()ë¡œ ë¬¶ì¸ ì»¬ëŸ¼ì˜ ê°œìˆ˜ì™€ íƒ€ìž…ì´ ì„œë¸Œì¿¼ë¦¬ì˜ ê²°ê³¼ì˜ ë°ì´í„°ì˜ ì»¬ëŸ¼ê°œìˆ˜ì™€ íƒ€ìž…ì´ ì¼ì¹˜í•´ì•¼ í•œë‹¤.
+-- ì„œë¸Œì¿¼ë¦¬ì˜ ê²°ê³¼ëŠ” í•œ í–‰ë§Œ ì¡°íšŒë¼ì•¼ í•œë‹¤.
 
 CREATE TABLE DEPT_COPY1
 	AS SELECT * FROM DEPT;
 
--- DEPT_COPY1 Å×ÀÌºí¿¡¼­ DNOÀÌ 20,30ÀÎ ºÎ¼­¸¦ 50ºÎ¼­¿Í ÅëÇÕ
+-- DEPT_COPY1 í…Œì´ë¸”ì—ì„œ DNOì´ 20,30ì¸ ë¶€ì„œë¥¼ 50ë¶€ì„œì™€ í†µí•©
 UPDATE DEPT_COPY1 
 	SET
 		(DNO, DNAME, LOC, DIRECTOR) = (
@@ -172,8 +172,8 @@ COMMIT;
 SELECT * 
 	FROM DEPT_COPY1;
 
--- DEPT_COPY1 Å×ÀÌºí¿¡¼­ DNOÀÌ 40ÀÎ ºÎ¼­ÀÇ DIRECTOR¸¦ 
--- EMPÅ×ÀÌºí¿¡¼­ ÃÖ°í±Þ¿©¸¦ ¹Þ´Â »ç¿øÀ¸·Î ¼öÁ¤
+-- DEPT_COPY1 í…Œì´ë¸”ì—ì„œ DNOì´ 40ì¸ ë¶€ì„œì˜ DIRECTORë¥¼ 
+-- EMPí…Œì´ë¸”ì—ì„œ ìµœê³ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì‚¬ì›ìœ¼ë¡œ ìˆ˜ì •
 UPDATE DEPT_COPY1 
 	SET 
 		DIRECTOR = (
@@ -190,13 +190,13 @@ COMMIT;
 SELECT * 
 	FROM DEPT_COPY1;
 
--- 1-3. DELETE FROM: µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÏ´Â ¸í·É¾î
--- Çà ´ÜÀ§·Î µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÏ±â ¶§¹®¿¡ ÄÃ·³À» ÁöÁ¤ÇÒ ÇÊ¿ä°¡ ¾ø´Ù.
--- WHERE ÀýÀ» »ç¿ëÇÏÁö ¾ÊÀ¸¸é Å×ÀÌºíÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÑ´Ù.
+-- 1-3. DELETE FROM: ë°ì´í„°ë¥¼ ì‚­ì œí•˜ëŠ” ëª…ë ¹ì–´
+-- í–‰ ë‹¨ìœ„ë¡œ ë°ì´í„°ë¥¼ ì‚­ì œí•˜ê¸° ë•Œë¬¸ì— ì»¬ëŸ¼ì„ ì§€ì •í•  í•„ìš”ê°€ ì—†ë‹¤.
+-- WHERE ì ˆì„ ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë©´ í…Œì´ë¸”ì˜ ëª¨ë“  ë°ì´í„°ë¥¼ ì‚­ì œí•œë‹¤.
 DELETE FROM DEPT_COPY1;
 COMMIT;
 
--- WHERE Àý·Î Æ¯Á¤ µ¥ÀÌÅÍ¸¸ »èÁ¦
+-- WHERE ì ˆë¡œ íŠ¹ì • ë°ì´í„°ë§Œ ì‚­ì œ
 DELETE FROM EMP_DNO30
 	WHERE DNO IN ('01','10');
 COMMIT;
@@ -204,7 +204,7 @@ COMMIT;
 SELECT *
 	FROM EMP_DNO30;
 
--- WHERE Àý¿¡ ¼­ºêÄõ¸®·Î Æ¯Á¤ µ¥ÀÌÅÍ¸¦ ÁöÁ¤ÇÒ ¼öµµ ÀÖ´Ù.
+-- WHERE ì ˆì— ì„œë¸Œì¿¼ë¦¬ë¡œ íŠ¹ì • ë°ì´í„°ë¥¼ ì§€ì •í•  ìˆ˜ë„ ìžˆë‹¤.
 DELETE FROM EMP_DNO30
 	WHERE ENO IN (
 		SELECT ENO
@@ -216,10 +216,10 @@ COMMIT;
 CREATE TABLE STUDENT_COPY1
 	AS SELECT * FROM STUDENT;
 
--- STUDENT_COPY1 Å×ÀÌºí¿¡¼­ ±â¸»°í»ç ¼ºÀûÀÇ Æò±ÕÀÌ 60Á¡ ÀÌÇÏÀÎ ÇÐ»ýµé ¸ðµÎ »èÁ¦
+-- STUDENT_COPY1 í…Œì´ë¸”ì—ì„œ ê¸°ë§ê³ ì‚¬ ì„±ì ì˜ í‰ê· ì´ 60ì  ì´í•˜ì¸ í•™ìƒë“¤ ëª¨ë‘ ì‚­ì œ
 DELETE FROM STUDENT_COPY1
 	WHERE SNO IN (
-		SELECT SNO -- Á¶È¸ÇÒ µ¥ÀÌÅÍ¸¦ Àß ¼³Á¤ÇÏ±â, Á¶°Ç¿¡ ÇØ´çÇÏ´Â ³»¿ëÀÌ ²À Á¶È¸ ¸ñ·Ï¿¡ ÀÖÀ» ÇÊ¿ä´Â ¾øÀ½
+		SELECT SNO -- ì¡°íšŒí•  ë°ì´í„°ë¥¼ ìž˜ ì„¤ì •í•˜ê¸°, ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” ë‚´ìš©ì´ ê¼­ ì¡°íšŒ ëª©ë¡ì— ìžˆì„ í•„ìš”ëŠ” ì—†ìŒ
 			FROM SCORE 
 			GROUP BY SNO
 			HAVING AVG(RESULT) <= 60
@@ -227,7 +227,7 @@ DELETE FROM STUDENT_COPY1
 COMMIT;
 
 SELECT *
-	FROM STUDENT_COPY1; -- 60Á¡ ÀÌ»óÀÌ°Å³ª µ¥ÀÌÅÍ°¡ ¾ø´Â ÇÐ»ýµé¸¸ ³ª¿È
+	FROM STUDENT_COPY1; -- 60ì  ì´ìƒì´ê±°ë‚˜ ë°ì´í„°ê°€ ì—†ëŠ” í•™ìƒë“¤ë§Œ ë‚˜ì˜´
 	
 
 
