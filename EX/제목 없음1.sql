@@ -21,3 +21,6 @@ SELECT *
     WHERE SNO = '555555';
               
               
+SELECT *
+    FROM BOOKS
+    WHERE BNO = 1;
