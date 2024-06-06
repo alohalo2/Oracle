@@ -1,0 +1,1 @@
+SELECT * FROM all_tables WHERE table_name = BOOKS;
