@@ -23,6 +23,5 @@ SELECT *
 SELECT *
     FROM BOOKS
     WHERE BNO = 1;
-    
+
 SELECT * FROM V$SQL; -- 이전에 작성했던 쿼리 전체를 보여주는 쿼리
-    
